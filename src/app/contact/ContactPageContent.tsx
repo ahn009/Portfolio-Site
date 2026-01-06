@@ -1,0 +1,361 @@
+"use client";
+
+import { useEffect, useRef, useState, FormEvent } from "react";
+import { motion } from "framer-motion";
+import { contactData, FaEnvelope, FaPhone, FaMapMarkerAlt } from "@/data";
+import { FaPaperPlane, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function ContactPageContent() {
+  const pageRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const infoRef = useRef<HTMLDivElement>(null);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header animation
+      gsap.from(headerRef.current?.children || [], {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out",
+      });
+
+      // Info cards animation
+      gsap.from(infoRef.current?.children || [], {
+        x: -50,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+        delay: 0.3,
+      });
+
+      // Form animation
+      if (formRef.current) {
+        gsap.from(formRef.current, {
+          x: 50,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          delay: 0.4,
+        });
+      }
+    }, pageRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <div ref={pageRef} className="min-h-screen bg-[#0a0a0a] pt-24">
+      {/* Hero Section */}
+      <section className="section-padding relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid opacity-30" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#10b981]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#d4af37]/5 rounded-full blur-3xl" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div ref={headerRef} className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 text-[#10b981] text-sm font-medium bg-[#10b981]/10 rounded-full mb-4">
+              Let&apos;s Connect
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+              Get In Touch
+            </h1>
+            <p className="text-[#737373] max-w-2xl mx-auto text-lg mb-6">
+              Have a project in mind or want to collaborate? Feel free to reach
+              out. I&apos;m always open to discussing new opportunities.
+            </p>
+            <div className="w-24 h-1 bg-gradient-green mx-auto rounded-full" />
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-16">
+            {/* Contact Info */}
+            <div ref={infoRef} className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold text-[#f5f5f5] mb-6">
+                  Contact Information
+                </h3>
+                <p className="text-[#a3a3a3] leading-relaxed mb-8">
+                  I&apos;m currently available for freelance work and full-time
+                  positions. If you have a project that needs coding or you want
+                  to hire me, feel free to contact me through any of the following.
+                </p>
+              </div>
+
+              {/* Contact Cards */}
+              <motion.a
+                href={`mailto:${contactData.email}`}
+                className="flex items-center gap-5 p-6 bg-[#111111] rounded-2xl border border-[#262626] hover:border-[#10b981]/30 transition-all group"
+                whileHover={{ x: 10, scale: 1.02 }}
+              >
+                <div className="w-16 h-16 rounded-xl bg-[#10b981]/10 flex items-center justify-center group-hover:bg-[#10b981]/20 transition-colors">
+                  <FaEnvelope className="w-7 h-7 text-[#10b981]" />
+                </div>
+                <div>
+                  <p className="text-[#737373] text-sm mb-1">Email</p>
+                  <p className="text-[#f5f5f5] font-semibold text-lg">
+                    {contactData.email}
+                  </p>
+                </div>
+              </motion.a>
+
+              <motion.a
+                href={`tel:${contactData.phone}`}
+                className="flex items-center gap-5 p-6 bg-[#111111] rounded-2xl border border-[#262626] hover:border-[#d4af37]/30 transition-all group"
+                whileHover={{ x: 10, scale: 1.02 }}
+              >
+                <div className="w-16 h-16 rounded-xl bg-[#d4af37]/10 flex items-center justify-center group-hover:bg-[#d4af37]/20 transition-colors">
+                  <FaPhone className="w-7 h-7 text-[#d4af37]" />
+                </div>
+                <div>
+                  <p className="text-[#737373] text-sm mb-1">Phone</p>
+                  <p className="text-[#f5f5f5] font-semibold text-lg">
+                    {contactData.phone}
+                  </p>
+                </div>
+              </motion.a>
+
+              <motion.div
+                className="flex items-center gap-5 p-6 bg-[#111111] rounded-2xl border border-[#262626]"
+                whileHover={{ x: 10, scale: 1.02 }}
+              >
+                <div className="w-16 h-16 rounded-xl bg-[#3b82f6]/10 flex items-center justify-center">
+                  <FaMapMarkerAlt className="w-7 h-7 text-[#3b82f6]" />
+                </div>
+                <div>
+                  <p className="text-[#737373] text-sm mb-1">Location</p>
+                  <p className="text-[#f5f5f5] font-semibold text-lg">
+                    {contactData.location}
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Social Links */}
+              <div className="pt-6">
+                <p className="text-[#737373] text-sm mb-4">Connect with me on</p>
+                <div className="flex gap-4">
+                  {contactData.social.map((social) => {
+                    const Icon = social.icon;
+                    return (
+                      <motion.a
+                        key={social.name}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-14 h-14 rounded-xl bg-[#111111] border border-[#262626] flex items-center justify-center text-[#a3a3a3] hover:text-[#10b981] hover:border-[#10b981]/30 hover:bg-[#10b981]/5 transition-all"
+                        whileHover={{ y: -5, scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        aria-label={social.name}
+                      >
+                        <Icon className="w-6 h-6" />
+                      </motion.a>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <motion.form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="bg-[#111111] rounded-2xl p-8 md:p-10 border border-[#262626]"
+            >
+              <h3 className="text-2xl font-bold text-[#f5f5f5] mb-8">
+                Send me a message
+              </h3>
+
+              <div className="space-y-6">
+                {/* Name Field */}
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-[#a3a3a3] mb-2"
+                  >
+                    Your Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                    required
+                    placeholder="John Doe"
+                    className="w-full px-5 py-4 bg-[#0a0a0a] border border-[#262626] rounded-xl text-[#f5f5f5] placeholder-[#737373] focus:outline-none focus:border-[#10b981] transition-colors"
+                  />
+                </div>
+
+                {/* Email Field */}
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-[#a3a3a3] mb-2"
+                  >
+                    Your Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    required
+                    placeholder="john@example.com"
+                    className="w-full px-5 py-4 bg-[#0a0a0a] border border-[#262626] rounded-xl text-[#f5f5f5] placeholder-[#737373] focus:outline-none focus:border-[#10b981] transition-colors"
+                  />
+                </div>
+
+                {/* Subject Field */}
+                <div>
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-[#a3a3a3] mb-2"
+                  >
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={(e) =>
+                      setFormData({ ...formData, subject: e.target.value })
+                    }
+                    placeholder="Project Inquiry"
+                    className="w-full px-5 py-4 bg-[#0a0a0a] border border-[#262626] rounded-xl text-[#f5f5f5] placeholder-[#737373] focus:outline-none focus:border-[#10b981] transition-colors"
+                  />
+                </div>
+
+                {/* Message Field */}
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-[#a3a3a3] mb-2"
+                  >
+                    Your Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    required
+                    rows={6}
+                    placeholder="Tell me about your project..."
+                    className="w-full px-5 py-4 bg-[#0a0a0a] border border-[#262626] rounded-xl text-[#f5f5f5] placeholder-[#737373] focus:outline-none focus:border-[#10b981] transition-colors resize-none"
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <motion.button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-green text-[#0a0a0a] font-semibold rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <FaPaperPlane />
+                    </>
+                  )}
+                </motion.button>
+
+                {/* Status Messages */}
+                {submitStatus === "success" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex items-center gap-3 p-4 bg-[#10b981]/10 border border-[#10b981]/30 rounded-xl text-[#10b981]"
+                  >
+                    <FaCheckCircle />
+                    <p>Message sent successfully! I&apos;ll get back to you soon.</p>
+                  </motion.div>
+                )}
+                {submitStatus === "error" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex items-center gap-3 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-500"
+                  >
+                    <FaExclamationCircle />
+                    <p>Something went wrong. Please try again or email me directly.</p>
+                  </motion.div>
+                )}
+              </div>
+            </motion.form>
+          </div>
+        </div>
+      </section>
+
+      {/* Map Section Placeholder */}
+      <section className="h-80 bg-[#111111] relative">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center">
+            <FaMapMarkerAlt className="w-12 h-12 text-[#10b981] mx-auto mb-4" />
+            <p className="text-[#737373]">Based in {contactData.location}</p>
+          </div>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a] pointer-events-none" />
+      </section>
+    </div>
+  );
+}
