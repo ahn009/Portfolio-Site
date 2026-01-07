@@ -8,8 +8,6 @@ import { FaBriefcase, FaMapMarkerAlt, FaCalendarAlt, FaGraduationCap, FaArrowRig
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function ExperiencePageContent() {
   const pageRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -17,6 +15,8 @@ export default function ExperiencePageContent() {
   const educationRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
     const ctx = gsap.context(() => {
       // Header animation
       gsap.from(headerRef.current?.children || [], {

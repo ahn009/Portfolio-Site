@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/data";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,6 +28,8 @@ export default function Navbar() {
 
   // GSAP Animation on mount
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
     const ctx = gsap.context(() => {
       // Logo animation
       gsap.from(logoRef.current, {

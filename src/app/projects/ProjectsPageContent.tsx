@@ -8,8 +8,6 @@ import { FaGithub, FaExternalLinkAlt, FaFilter } from "react-icons/fa";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function ProjectsPageContent() {
   const pageRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -24,6 +22,8 @@ export default function ProjectsPageContent() {
     : projectsData.filter(p => p.techStack.some(t => t.name === filter));
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
     const ctx = gsap.context(() => {
       // Header animation
       gsap.from(headerRef.current?.children || [], {

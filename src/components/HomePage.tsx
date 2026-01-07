@@ -9,8 +9,6 @@ import { FaArrowRight, FaDownload, FaEnvelope, FaGithub, FaLinkedin } from "reac
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function HomePage() {
   const heroRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -19,6 +17,8 @@ export default function HomePage() {
   const featuredRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
     const ctx = gsap.context(() => {
       // Hero text animation
       gsap.from(textRef.current?.children || [], {

@@ -8,8 +8,6 @@ import { FaHeart, FaArrowUp } from "react-icons/fa";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -22,6 +20,8 @@ export default function Footer() {
 
   // GSAP Animation
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
     const ctx = gsap.context(() => {
       // Footer content animation
       gsap.from(contentRef.current?.children || [], {

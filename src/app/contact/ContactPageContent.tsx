@@ -7,8 +7,6 @@ import { FaPaperPlane, FaCheckCircle, FaExclamationCircle } from "react-icons/fa
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function ContactPageContent() {
   const pageRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -25,6 +23,8 @@ export default function ContactPageContent() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
     const ctx = gsap.context(() => {
       // Header animation
       gsap.from(headerRef.current?.children || [], {
