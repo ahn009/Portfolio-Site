@@ -5,9 +5,15 @@ import { motion } from "framer-motion";
 import { contactData, FaEnvelope, FaPhone, FaMapMarkerAlt } from "@/data";
 import { FaPaperPlane, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+// Only register ScrollTrigger once at module load
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function ContactPageContent() {
+  const [mounted, setMounted] = useState(false);
   const pageRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -22,43 +28,40 @@ export default function ContactPageContent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
+  // Prevent hydration mismatch
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || !pageRef.current) return;
+
     const ctx = gsap.context(() => {
       // Header animation
-      gsap.from(headerRef.current?.children || [], {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-      });
+      if (headerRef.current && headerRef.current.children.length > 0) {
+        Array.from(headerRef.current.children).forEach((child: any) => {
+          child.style.opacity = "1";
+          child.style.transform = "translateY(0)";
+        });
+      }
 
       // Info cards animation
-      gsap.from(infoRef.current?.children || [], {
-        x: -50,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power2.out",
-        delay: 0.3,
-      });
+      if (infoRef.current && infoRef.current.children.length > 0) {
+        Array.from(infoRef.current.children).forEach((child: any) => {
+          child.style.opacity = "1";
+          child.style.transform = "translateX(0)";
+        });
+      }
 
       // Form animation
       if (formRef.current) {
-        gsap.from(formRef.current, {
-          x: 50,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          delay: 0.4,
-        });
+        formRef.current.style.opacity = "1";
+        formRef.current.style.transform = "translateX(0)";
       }
     }, pageRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [mounted]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();

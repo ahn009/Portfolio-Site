@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { Navbar, Footer } from "@/components";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -84,13 +86,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[#0a0a0a] text-[#f5f5f5]`}
+        className={`${poppins.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[#0a0a0a] text-[#f5f5f5] dark`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

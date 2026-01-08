@@ -6,13 +6,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import { projectsData } from "@/data";
 import { FaGithub, FaExternalLinkAlt, FaFilter } from "react-icons/fa";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+// Only register ScrollTrigger once at module load
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function ProjectsPageContent() {
+  const [mounted, setMounted] = useState(false);
   const pageRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const [filter, setFilter] = useState("all");
+
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Get unique tech stacks for filtering
   const allTechs = [...new Set(projectsData.flatMap(p => p.techStack.map(t => t.name)))];
@@ -22,34 +33,30 @@ export default function ProjectsPageContent() {
     : projectsData.filter(p => p.techStack.some(t => t.name === filter));
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    const ctx = gsap.context(() => {
-      // Header animation
-      gsap.from(headerRef.current?.children || [], {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-      });
+    if (!mounted || !pageRef.current) return;
 
-      // Projects animation
-      gsap.from(projectsRef.current?.children || [], {
-        y: 80,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: projectsRef.current,
-          start: "top 85%",
-        },
-      });
+    const ctx = gsap.context(() => {
+      // Header - show immediately
+      if (headerRef.current && headerRef.current.children.length > 0) {
+        Array.from(headerRef.current.children).forEach((child: any) => {
+          child.style.opacity = "1";
+          child.style.transform = "translateY(0)";
+        });
+      }
+
+      // Projects - show immediately and don't hide
+      if (projectsRef.current && projectsRef.current.children.length > 0) {
+        Array.from(projectsRef.current.children).forEach((child: any) => {
+          child.style.opacity = "1";
+          child.style.transform = "translateY(0)";
+          child.style.display = "block";
+          child.style.visibility = "visible";
+        });
+      }
     }, pageRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [mounted]);
 
   return (
     <div ref={pageRef} className="min-h-screen bg-[#0a0a0a] pt-24">

@@ -1,16 +1,27 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { navLinks, contactData } from "@/data";
 import { FaHeart, FaArrowUp } from "react-icons/fa";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+// Only register ScrollTrigger once at module load
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function Footer() {
+  const [mounted, setMounted] = useState(false);
   const footerRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -18,31 +29,32 @@ export default function Footer() {
 
   const currentYear = new Date().getFullYear();
 
-  // GSAP Animation
+  // GSAP Animation - safely wrapped
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
+    if (!mounted || !footerRef.current) return;
+
     const ctx = gsap.context(() => {
-      // Footer content animation
-      gsap.from(contentRef.current?.children || [], {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: "top 90%",
-          toggleActions: "play none none none",
-        },
-      });
+      // Footer content - show immediately
+      if (contentRef.current && contentRef.current.children.length > 0) {
+        Array.from(contentRef.current.children).forEach((child: any) => {
+          child.style.opacity = "1";
+          child.style.transform = "translateY(0)";
+        });
+      }
     }, footerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [mounted]);
+
+  if (!mounted) {
+    return <footer className="bg-[#0a0a0a] border-t border-[#262626] dark:border-[#262626] h-96" />;
+  }
 
   return (
-    <footer ref={footerRef} className="bg-[#0a0a0a] border-t border-[#262626] relative overflow-hidden">
+    <footer
+      ref={footerRef}
+      className="bg-[#0a0a0a] dark:bg-[#0a0a0a] border-t border-[#262626] dark:border-[#262626] relative overflow-hidden"
+    >
       {/* Decorative Elements */}
       <div className="absolute top-0 left-1/4 w-72 h-72 bg-[#10b981]/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-[#d4af37]/5 rounded-full blur-3xl" />

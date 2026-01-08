@@ -1,71 +1,70 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { aboutData, timelineData, skillsData, softSkills, educationData } from "@/data";
 import { FaCheckCircle, FaGraduationCap, FaArrowRight } from "react-icons/fa";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+// Only register ScrollTrigger once at module load
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function AboutPageContent() {
+  const [mounted, setMounted] = useState(false);
   const pageRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
 
+  // Prevent hydration mismatch
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || !pageRef.current) return;
     
     const ctx = gsap.context(() => {
-      // Header animation
-      gsap.from(headerRef.current?.children || [], {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-      });
+      // Ensure all elements are visible - don't hide them
+      if (headerRef.current && headerRef.current.children.length > 0) {
+        Array.from(headerRef.current.children).forEach((child: any) => {
+          child.style.opacity = "1";
+          child.style.transform = "translateY(0)";
+        });
+      }
 
-      // Content paragraphs animation
-      gsap.from(contentRef.current?.querySelectorAll("p") || [], {
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: "top 80%",
-        },
-      });
+      // Content paragraphs - show immediately
+      const paragraphs = contentRef.current?.querySelectorAll("p");
+      if (paragraphs && paragraphs.length > 0) {
+        paragraphs.forEach((p: any) => {
+          p.style.opacity = "1";
+          p.style.transform = "translateY(0)";
+        });
+      }
 
-      // Timeline items animation
-      gsap.from(timelineRef.current?.querySelectorAll(".timeline-item") || [], {
-        x: -50,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: timelineRef.current,
-          start: "top 80%",
-        },
-      });
+      // Timeline items - show immediately
+      const timelineItems = timelineRef.current?.querySelectorAll(".timeline-item");
+      if (timelineItems && timelineItems.length > 0) {
+        timelineItems.forEach((item: any) => {
+          item.style.opacity = "1";
+          item.style.transform = "translateX(0)";
+        });
+      }
 
       // Skills cards animation
-      gsap.from(skillsRef.current?.children || [], {
-        y: 50,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: skillsRef.current,
-          start: "top 80%",
-        },
-      });
+      if (skillsRef.current && skillsRef.current.children.length > 0) {
+        gsap.fromTo(skillsRef.current.children,
+          { y: 50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out",
+            scrollTrigger: { trigger: skillsRef.current, start: "top 80%" }
+          }
+        );
+      }
     }, pageRef);
 
     return () => ctx.revert();

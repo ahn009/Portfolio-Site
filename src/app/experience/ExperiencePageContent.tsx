@@ -1,65 +1,64 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { experienceData, educationData } from "@/data";
 import { FaBriefcase, FaMapMarkerAlt, FaCalendarAlt, FaGraduationCap, FaArrowRight } from "react-icons/fa";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+// Only register ScrollTrigger once at module load
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function ExperiencePageContent() {
+  const [mounted, setMounted] = useState(false);
   const pageRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const educationRef = useRef<HTMLDivElement>(null);
 
+  // Prevent hydration mismatch
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    const ctx = gsap.context(() => {
-      // Header animation
-      gsap.from(headerRef.current?.children || [], {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-      });
+    setMounted(true);
+  }, []);
 
-      // Timeline animation with scroll trigger
-      const timelineItems = timelineRef.current?.querySelectorAll(".experience-card");
-      if (timelineItems) {
-        timelineItems.forEach((item, index) => {
-          gsap.from(item, {
-            x: index % 2 === 0 ? -100 : 100,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: item,
-              start: "top 85%",
-            },
-          });
+  useEffect(() => {
+    if (!mounted || !pageRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Header - show immediately
+      if (headerRef.current && headerRef.current.children.length > 0) {
+        Array.from(headerRef.current.children).forEach((child: any) => {
+          child.style.opacity = "1";
+          child.style.transform = "translateY(0)";
         });
       }
 
-      // Education cards animation
-      gsap.from(educationRef.current?.children || [], {
-        y: 60,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: educationRef.current,
-          start: "top 80%",
-        },
-      });
+      // Timeline cards - show immediately
+      const timelineItems = timelineRef.current?.querySelectorAll(".experience-card");
+      if (timelineItems && timelineItems.length > 0) {
+        timelineItems.forEach((item: any) => {
+          item.style.opacity = "1";
+          item.style.transform = "translateX(0)";
+        });
+      }
+
+      // Education cards - show immediately and visibly
+      if (educationRef.current && educationRef.current.children.length > 0) {
+        Array.from(educationRef.current.children).forEach((child: any) => {
+          child.style.opacity = "1";
+          child.style.transform = "translateY(0)";
+          child.style.display = "block"; // Ensure not hidden
+          child.style.visibility = "visible";
+        });
+      }
     }, pageRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [mounted]);
 
   return (
     <div ref={pageRef} className="min-h-screen bg-[#0a0a0a] pt-24">

@@ -1,72 +1,73 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { heroData, skillsData, projectsData } from "@/data";
 import { FaArrowRight, FaDownload, FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+// Only register ScrollTrigger once at module load
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function HomePage() {
+  const [mounted, setMounted] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const featuredRef = useRef<HTMLDivElement>(null);
 
+  // Prevent hydration mismatch
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
+    setMounted(true);
+  }, []);
+
+  // GSAP Animation - safely wrapped
+  useEffect(() => {
+    if (!mounted || !heroRef.current) return;
+
     const ctx = gsap.context(() => {
       // Hero text animation
-      gsap.from(textRef.current?.children || [], {
-        y: 100,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.15,
-        ease: "power4.out",
-      });
+      if (textRef.current && textRef.current.children.length > 0) {
+        gsap.fromTo(textRef.current.children, 
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: "power4.out" }
+        );
+      }
 
       // Profile image animation
-      gsap.from(imageRef.current, {
-        scale: 0.8,
-        opacity: 0,
-        duration: 1.2,
-        ease: "elastic.out(1, 0.5)",
-        delay: 0.5,
-      });
+      if (imageRef.current) {
+        gsap.fromTo(imageRef.current, 
+          { scale: 0.8, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1.2, ease: "elastic.out(1, 0.5)", delay: 0.5 }
+        );
+      }
 
-      // Stats animation
-      gsap.from(statsRef.current?.children || [], {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: statsRef.current,
-          start: "top 80%",
-        },
-      });
+      // Stats animation - show immediately, no scroll trigger
+      if (statsRef.current && statsRef.current.children.length > 0) {
+        // Set all stat items to visible by default
+        Array.from(statsRef.current.children).forEach((child: any) => {
+          child.style.opacity = "1";
+          child.style.transform = "translateY(0)";
+        });
+      }
 
-      // Featured section animation
-      gsap.from(featuredRef.current?.children || [], {
-        y: 80,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: featuredRef.current,
-          start: "top 80%",
-        },
-      });
+      // Featured section animation - show immediately
+      if (featuredRef.current && featuredRef.current.children.length > 0) {
+        Array.from(featuredRef.current.children).forEach((child: any) => {
+          child.style.opacity = "1";
+          child.style.transform = "translateY(0)";
+        });
+      }
     }, heroRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [mounted]);
 
   const stats = [
     { number: "3+", label: "Years Experience" },
@@ -75,10 +76,14 @@ export default function HomePage() {
     { number: "30%", label: "Performance Boost" },
   ];
 
+  if (!mounted) {
+    return <main className="min-h-screen bg-[#0a0a0a]" />;
+  }
+
   return (
     <main ref={heroRef}>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a] pt-20">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a] dark:bg-[#0a0a0a] pt-20">
         {/* Animated Background */}
         <div className="absolute inset-0 bg-grid opacity-50" />
         
