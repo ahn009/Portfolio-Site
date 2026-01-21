@@ -39,7 +39,7 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
     setTheme(initialTheme);
     applyTheme(initialTheme);
     setMounted(true);
-  }, []);
+  }, [mounted]);
 
   const applyTheme = (newTheme: Theme) => {
     if (typeof window === "undefined") return;

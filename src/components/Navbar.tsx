@@ -53,9 +53,9 @@ export default function Navbar() {
 
       // Links - show immediately
       if (linksRef.current && linksRef.current.children.length > 0) {
-        Array.from(linksRef.current.children).forEach((child: any) => {
-          child.style.opacity = "1";
-          child.style.transform = "translateY(0)";
+        Array.from(linksRef.current.children).forEach((child: Element) => {
+          (child as HTMLElement).style.opacity = "1";
+          (child as HTMLElement).style.transform = "translateY(0)";
         });
       }
     }, navRef);

@@ -34,13 +34,13 @@ export const navLinks = [
 // Hero Section Data
 export const heroData = {
   name: "Muhammad Awais",
-  headline: "Full Stack Developer | MERN Stack & AI Enthusiast",
+  headline: "Full Stack Developer | MERN Stack & AI Developer",
   subheadline:
     "Crafting high-performance web applications with Next.js, React, and Node.js. Passionate about AI-driven solutions and seamless user experiences.",
   profileImage: "/images/profile.jpg",
   ctas: {
     primary: { text: "View My Work", href: "/projects" },
-    secondary: { text: "Download Resume", href: "/resume.pdf" },
+    secondary: { text: "Download Resume", href: "/m_resume.pdf" },
     tertiary: { text: "Get In Touch", href: "/contact" },
   },
 };
@@ -137,6 +137,10 @@ export const skillsData: SkillCategory[] = [
     skills: [
       { name: "Python", icon: SiPython, level: "Advanced" },
       { name: "OpenAI SDK", icon: SiOpenai, level: "Advanced" },
+      { name: "AI", icon: SiPython, level: "Advanced" },
+      { name: "ML", icon: SiPython, level: "Advanced" },
+      { name: "Agentic AI", icon: SiOpenai, level: "Advanced" },
+      { name: "Gen AI", icon: SiOpenai, level: "Advanced" },
     ],
   },
 ];
@@ -296,17 +300,17 @@ export const contactData = {
   social: [
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/in/muhammadawais",
+      url: "https://linkedin.com/in/muhammad-awais-5b37742ba",
       icon: FaLinkedin,
     },
     {
       name: "GitHub",
-      url: "https://github.com/Awais-codes",
+      url: "https://github.com/mhaawais",
       icon: FaGithub,
     },
     {
       name: "Portfolio",
-      url: "https://muhammadawais.dev",
+      url: "https://myportfolio-website-six.vercel.app/",
       icon: FaGlobe,
     },
   ],

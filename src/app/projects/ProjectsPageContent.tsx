@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { projectsData } from "@/data";
-import { FaGithub, FaExternalLinkAlt, FaFilter } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
@@ -38,19 +38,20 @@ export default function ProjectsPageContent() {
     const ctx = gsap.context(() => {
       // Header - show immediately
       if (headerRef.current && headerRef.current.children.length > 0) {
-        Array.from(headerRef.current.children).forEach((child: any) => {
-          child.style.opacity = "1";
-          child.style.transform = "translateY(0)";
+        Array.from(headerRef.current.children).forEach((child: Element) => {
+          (child as HTMLElement).style.opacity = "1";
+          (child as HTMLElement).style.transform = "translateY(0)";
         });
       }
 
       // Projects - show immediately and don't hide
       if (projectsRef.current && projectsRef.current.children.length > 0) {
-        Array.from(projectsRef.current.children).forEach((child: any) => {
-          child.style.opacity = "1";
-          child.style.transform = "translateY(0)";
-          child.style.display = "block";
-          child.style.visibility = "visible";
+        Array.from(projectsRef.current.children).forEach((child: Element) => {
+          const el = child as HTMLElement;
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+          el.style.display = "block";
+          el.style.visibility = "visible";
         });
       }
     }, pageRef);

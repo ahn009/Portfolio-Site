@@ -51,17 +51,17 @@ export default function HomePage() {
       // Stats animation - show immediately, no scroll trigger
       if (statsRef.current && statsRef.current.children.length > 0) {
         // Set all stat items to visible by default
-        Array.from(statsRef.current.children).forEach((child: any) => {
-          child.style.opacity = "1";
-          child.style.transform = "translateY(0)";
+        Array.from(statsRef.current.children).forEach((child: Element) => {
+          (child as HTMLElement).style.opacity = "1";
+          (child as HTMLElement).style.transform = "translateY(0)";
         });
       }
 
       // Featured section animation - show immediately
       if (featuredRef.current && featuredRef.current.children.length > 0) {
-        Array.from(featuredRef.current.children).forEach((child: any) => {
-          child.style.opacity = "1";
-          child.style.transform = "translateY(0)";
+        Array.from(featuredRef.current.children).forEach((child: Element) => {
+          (child as HTMLElement).style.opacity = "1";
+          (child as HTMLElement).style.transform = "translateY(0)";
         });
       }
     }, heroRef);
@@ -71,9 +71,9 @@ export default function HomePage() {
 
   const stats = [
     { number: "3+", label: "Years Experience" },
-    { number: "15+", label: "Projects Completed" },
-    { number: "5+", label: "Happy Clients" },
-    { number: "30%", label: "Performance Boost" },
+    { number: "70+", label: "Projects Completed" },
+    { number: "50+", label: "Happy Clients" },
+    { number: "130%", label: "Performance Boost" },
   ];
 
   if (!mounted) {

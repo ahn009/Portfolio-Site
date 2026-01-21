@@ -32,27 +32,27 @@ export default function AboutPageContent() {
     const ctx = gsap.context(() => {
       // Ensure all elements are visible - don't hide them
       if (headerRef.current && headerRef.current.children.length > 0) {
-        Array.from(headerRef.current.children).forEach((child: any) => {
-          child.style.opacity = "1";
-          child.style.transform = "translateY(0)";
+        Array.from(headerRef.current.children).forEach((child: Element) => {
+          (child as HTMLElement).style.opacity = "1";
+          (child as HTMLElement).style.transform = "translateY(0)";
         });
       }
 
       // Content paragraphs - show immediately
       const paragraphs = contentRef.current?.querySelectorAll("p");
       if (paragraphs && paragraphs.length > 0) {
-        paragraphs.forEach((p: any) => {
-          p.style.opacity = "1";
-          p.style.transform = "translateY(0)";
+        paragraphs.forEach((p: Element) => {
+          (p as HTMLElement).style.opacity = "1";
+          (p as HTMLElement).style.transform = "translateY(0)";
         });
       }
 
       // Timeline items - show immediately
       const timelineItems = timelineRef.current?.querySelectorAll(".timeline-item");
       if (timelineItems && timelineItems.length > 0) {
-        timelineItems.forEach((item: any) => {
-          item.style.opacity = "1";
-          item.style.transform = "translateX(0)";
+        timelineItems.forEach((item: Element) => {
+          (item as HTMLElement).style.opacity = "1";
+          (item as HTMLElement).style.transform = "translateX(0)";
         });
       }
 
@@ -286,14 +286,14 @@ export default function AboutPageContent() {
           </div>
 
           <div className="space-y-6">
-            {educationData.map((edu, index) => (
+            {educationData.map((edu) => (
               <motion.div
                 key={edu.degree}
                 className="group relative bg-[#111111] rounded-2xl p-6 md:p-8 border border-[#262626] hover:border-[#10b981]/30 transition-all"
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ duration: 0.6 }}
                 whileHover={{ x: 5 }}
               >
                 {/* Accent Line */}

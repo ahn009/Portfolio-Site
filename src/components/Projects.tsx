@@ -4,7 +4,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { projectsData } from "@/data";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import Image from "next/image";
 
 export default function Projects() {
   const ref = useRef(null);

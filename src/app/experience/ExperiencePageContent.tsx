@@ -31,28 +31,29 @@ export default function ExperiencePageContent() {
     const ctx = gsap.context(() => {
       // Header - show immediately
       if (headerRef.current && headerRef.current.children.length > 0) {
-        Array.from(headerRef.current.children).forEach((child: any) => {
-          child.style.opacity = "1";
-          child.style.transform = "translateY(0)";
+        Array.from(headerRef.current.children).forEach((child: Element) => {
+          (child as HTMLElement).style.opacity = "1";
+          (child as HTMLElement).style.transform = "translateY(0)";
         });
       }
 
       // Timeline cards - show immediately
       const timelineItems = timelineRef.current?.querySelectorAll(".experience-card");
       if (timelineItems && timelineItems.length > 0) {
-        timelineItems.forEach((item: any) => {
-          item.style.opacity = "1";
-          item.style.transform = "translateX(0)";
+        timelineItems.forEach((item: Element) => {
+          (item as HTMLElement).style.opacity = "1";
+          (item as HTMLElement).style.transform = "translateX(0)";
         });
       }
 
       // Education cards - show immediately and visibly
       if (educationRef.current && educationRef.current.children.length > 0) {
-        Array.from(educationRef.current.children).forEach((child: any) => {
-          child.style.opacity = "1";
-          child.style.transform = "translateY(0)";
-          child.style.display = "block"; // Ensure not hidden
-          child.style.visibility = "visible";
+        Array.from(educationRef.current.children).forEach((child: Element) => {
+          const el = child as HTMLElement;
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+          el.style.display = "block"; // Ensure not hidden
+          el.style.visibility = "visible";
         });
       }
     }, pageRef);
@@ -194,7 +195,7 @@ export default function ExperiencePageContent() {
           </div>
 
           <div ref={educationRef} className="space-y-6">
-            {educationData.map((edu, index) => (
+            {educationData.map((edu) => (
               <motion.div
                 key={edu.degree}
                 className="group relative bg-[#0a0a0a] rounded-2xl p-8 border border-[#262626] hover:border-[#10b981]/30 transition-all"
