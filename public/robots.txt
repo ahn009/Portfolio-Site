@@ -1,4 +1,22 @@
+# Robots.txt for Muhammad Awais Portfolio - Full Stack Developer
+# Allows search engines to crawl and index all pages
+
 User-agent: *
 Allow: /
 
-Sitemap: https://muhammad-awais-portfolio.vercel.app/sitemap.xml
+# Explicitly allow crawling of important pages
+Allow: /about
+Allow: /projects
+Allow: /experience
+Allow: /contact
+
+# Disallow crawling of non-essential resources
+Disallow: /_next/
+Disallow: /api/
+Disallow: *.json$
+
+# Sitemap location
+Sitemap: https://muhammadawais.dev/sitemap.xml
+
+# Crawl delay (adjust based on server capacity)
+Crawl-delay: 1

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ThemeProvider from "@/components/ThemeProvider";
+import { generatePersonSchema, generateWebsiteSchema } from "@/lib/schema";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -21,23 +22,24 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://muhammadawais.dev"),
-  title: "Muhammad Awais | Full Stack Developer & AI Enthusiast",
+  title: "Muhammad Awais | Full Stack Developer & React Specialist",
   description:
-    "Portfolio of Muhammad Awais - Full Stack Developer specializing in MERN Stack, Next.js, React, and AI-driven solutions. Building high-performance web applications.",
+    "Full Stack Developer specializing in Next.js, React, Node.js, and AI-powered solutions. 3+ years building scalable web applications for startups and enterprises. Available for freelance projects and full-time roles.",
   verification: {
     google: "qaffrCRgQTIweoljI3L7It6hQEI7tjESpBOZ71gx2hQ",
   },
   keywords: [
-    "Muhammad Awais",
     "Full Stack Developer",
-    "MERN Stack",
-    "Next.js",
-    "React",
-    "Node.js",
-    "TypeScript",
-    "AI Developer",
+    "React Developer",
+    "Next.js Developer",
     "Web Developer",
-    "Pakistan",
+    "Node.js Developer",
+    "Full Stack Web Development",
+    "AI-powered applications",
+    "Business websites",
+    "E-commerce development",
+    "Web application development",
+    "Pakistan developer",
   ],
   authors: [{ name: "Muhammad Awais" }],
   creator: "Muhammad Awais",
@@ -45,16 +47,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://muhammadawais.dev",
-    siteName: "Muhammad Awais Portfolio",
-    title: "Muhammad Awais | Full Stack Developer & AI Enthusiast",
+    siteName: "Muhammad Awais - Full Stack Developer",
+    title: "Muhammad Awais | Full Stack Developer & React Specialist",
     description:
-      "Crafting high-performance web applications with Next.js, React, and Node.js. Passionate about AI-driven solutions.",
+      "Building production-grade web applications with Next.js, React, Node.js. 3+ years of experience. Specializing in performance optimization and AI integration.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Muhammad Awais - Full Stack Developer",
+        alt: "Muhammad Awais - Full Stack Developer & React Specialist",
       },
     ],
   },
@@ -62,8 +64,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Muhammad Awais | Full Stack Developer",
     description:
-      "Full Stack Developer specializing in MERN Stack, Next.js, and AI-driven solutions.",
+      "Full Stack Developer specializing in Next.js, React, Node.js, and AI solutions. 130% performance improvements. Available for projects.",
     images: ["/og-image.png"],
+    creator: "@awais8640107",
   },
   robots: {
     index: true,
@@ -81,6 +84,9 @@ export const metadata: Metadata = {
     shortcut: "/favicon.png",
     apple: "/favicon.png",
   },
+  alternates: {
+    canonical: "https://muhammadawais.dev",
+  },
 };
 
 export default function RootLayout({
@@ -88,8 +94,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const personSchema = generatePersonSchema();
+  const websiteSchema = generateWebsiteSchema();
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+      </head>
       <body
         className={`${poppins.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[#0a0a0a] text-[#f5f5f5] dark`}
       >

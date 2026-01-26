@@ -3,7 +3,14 @@ import AboutPageContent from "./AboutPageContent";
 
 export const metadata: Metadata = {
   title: "About | Muhammad Awais - Full Stack Developer",
-  description: "Learn about Muhammad Awais, a Full Stack Developer with 3+ years of experience in MERN stack, Next.js, and AI integration.",
+  description:
+    "Learn about Muhammad Awais's journey as a Full Stack Developer. 3+ years of experience building scalable applications with Next.js, React, Node.js, and modern web technologies.",
+  openGraph: {
+    title: "About Muhammad Awais - Full Stack Developer",
+    description:
+      "Full Stack Developer with expertise in Next.js, React, Node.js. Passionate about performance optimization and AI integration.",
+    url: "https://muhammadawais.dev/about",
+  },
 };
 
 export default function AboutPage() {

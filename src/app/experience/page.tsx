@@ -3,7 +3,14 @@ import ExperiencePageContent from "./ExperiencePageContent";
 
 export const metadata: Metadata = {
   title: "Experience | Muhammad Awais - Full Stack Developer",
-  description: "Professional work experience of Muhammad Awais as a Full Stack Developer at S-Tech Innovative and Byte-Forge Solutions.",
+  description:
+    "Professional experience of Muhammad Awais. Full Stack Developer at S-Tech Innovative and Byte-Forge Solutions. Building scalable applications with modern tech stack.",
+  openGraph: {
+    title: "Work Experience - Muhammad Awais",
+    description:
+      "Full Stack Developer with 3+ years of experience. Expertise in Next.js, React, Node.js, PostgreSQL, and AI integration.",
+    url: "https://muhammadawais.dev/experience",
+  },
 };
 
 export default function ExperiencePage() {

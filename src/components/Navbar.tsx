@@ -143,11 +143,13 @@ export default function Navbar() {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="md:hidden p-2 text-[#f5f5f5]"
                 whileTap={{ scale: 0.9 }}
+                aria-label="Toggle mobile menu"
+                aria-expanded={isMobileMenuOpen}
               >
                 {isMobileMenuOpen ? (
-                  <HiX className="w-6 h-6" />
+                  <HiX className="w-6 h-6" aria-hidden="true" />
                 ) : (
-                  <HiMenuAlt3 className="w-6 h-6" />
+                  <HiMenuAlt3 className="w-6 h-6" aria-hidden="true" />
                 )}
               </motion.button>
             </div>

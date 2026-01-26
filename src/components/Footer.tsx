@@ -70,8 +70,7 @@ export default function Footer() {
                 <span className="text-4xl font-bold text-gradient">MA</span>
               </Link>
               <p className="text-[#a3a3a3] max-w-md text-sm md:text-base">
-                Full Stack Developer specializing in building scalable SaaS
-                products and production-ready web applications.
+                Full Stack Developer specializing in building scalable web applications, business platforms, and production-ready solutions.
               </p>
 
               {/* Social */}
@@ -84,11 +83,12 @@ export default function Footer() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`Visit ${social.name}`}
                       className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[#111111] border border-[#262626] flex items-center justify-center text-[#737373] hover:text-[#10b981] hover:border-[#10b981]/30 transition"
                       whileHover={{ y: -3, scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Icon className="w-4 h-4 md:w-5 md:h-5" />
+                      <Icon className="w-4 h-4 md:w-5 md:h-5" aria-hidden="true" />
                     </motion.a>
                   );
                 })}
