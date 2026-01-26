@@ -251,8 +251,8 @@ export default function ExperiencePageContent() {
             {[
               { number: "3+", label: "Years Experience" },
               { number: "2", label: "Companies Worked" },
-              { number: "15+", label: "Projects Delivered" },
-              { number: "30%", label: "Performance Improved" },
+              { number: "50+", label: "Projects Delivered" },
+              { number: "130%", label: "Performance Improved" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}

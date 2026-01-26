@@ -7,8 +7,9 @@ import { navLinks, contactData } from "@/data";
 import { FaHeart, FaArrowUp } from "react-icons/fa";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useForm, ValidationError } from "@formspree/react";
 
-// Only register ScrollTrigger once at module load
+// Register GSAP plugin safely
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
@@ -18,7 +19,9 @@ export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  // Prevent hydration mismatch
+  // Formspree hook (replace ID if needed)
+  const [state, handleSubmit] = useForm("mreqbbeq");
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -29,14 +32,12 @@ export default function Footer() {
 
   const currentYear = new Date().getFullYear();
 
-  // GSAP Animation - safely wrapped
   useEffect(() => {
     if (!mounted || !footerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Footer content - show immediately
-      if (contentRef.current && contentRef.current.children.length > 0) {
-        Array.from(contentRef.current.children).forEach((child: Element) => {
+      if (contentRef.current?.children.length) {
+        Array.from(contentRef.current.children).forEach((child) => {
           (child as HTMLElement).style.opacity = "1";
           (child as HTMLElement).style.transform = "translateY(0)";
         });
@@ -47,34 +48,34 @@ export default function Footer() {
   }, [mounted]);
 
   if (!mounted) {
-    return <footer className="bg-[#0a0a0a] border-t border-[#262626] dark:border-[#262626] h-96" />;
+    return <footer className="bg-[#0a0a0a] h-96" />;
   }
 
   return (
     <footer
       ref={footerRef}
-      className="bg-[#0a0a0a] dark:bg-[#0a0a0a] border-t border-[#262626] dark:border-[#262626] relative overflow-hidden"
+      className="bg-[#0a0a0a] border-t border-[#262626] relative overflow-hidden"
     >
-      {/* Decorative Elements */}
+      {/* Decorative Blobs */}
       <div className="absolute top-0 left-1/4 w-72 h-72 bg-[#10b981]/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-[#d4af37]/5 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Main Footer Content */}
+        {/* Main Content */}
         <div ref={contentRef} className="py-16 md:py-20">
           <div className="grid md:grid-cols-4 gap-12">
             {/* Brand */}
             <div className="md:col-span-2 space-y-6">
-              <Link href="/" className="inline-block group">
+              <Link href="/" className="inline-block">
                 <span className="text-4xl font-bold text-gradient">MA</span>
               </Link>
-              <p className="text-[#a3a3a3] text-base leading-relaxed max-w-md">
-                Full Stack Developer specializing in building exceptional
-                digital experiences with modern web technologies. Let&apos;s create
-                something amazing together.
+              <p className="text-[#a3a3a3] max-w-md">
+                Full Stack Developer specializing in building scalable SaaS
+                products and production-ready web applications.
               </p>
-              {/* Social Links */}
-              <div className="flex gap-4 pt-2">
+
+              {/* Social */}
+              <div className="flex gap-4">
                 {contactData.social.map((social) => {
                   const Icon = social.icon;
                   return (
@@ -83,10 +84,9 @@ export default function Footer() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-xl bg-[#111111] border border-[#262626] flex items-center justify-center text-[#737373] hover:text-[#10b981] hover:border-[#10b981]/30 hover:bg-[#10b981]/10 transition-all duration-300"
+                      className="w-12 h-12 rounded-xl bg-[#111111] border border-[#262626] flex items-center justify-center text-[#737373] hover:text-[#10b981] hover:border-[#10b981]/30 transition"
                       whileHover={{ y: -3, scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      aria-label={social.name}
                     >
                       <Icon className="w-5 h-5" />
                     </motion.a>
@@ -97,13 +97,13 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-[#f5f5f5] font-semibold text-lg mb-6">Quick Links</h4>
+              <h4 className="text-white font-semibold mb-6">Quick Links</h4>
               <ul className="space-y-4">
                 {navLinks.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-[#737373] hover:text-[#10b981] text-sm transition-colors link-hover inline-block"
+                      className="text-[#737373] hover:text-[#10b981] text-sm"
                     >
                       {link.name}
                     </Link>
@@ -112,82 +112,87 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Contact Info */}
+            {/* Contact */}
             <div>
-              <h4 className="text-[#f5f5f5] font-semibold text-lg mb-6">Get In Touch</h4>
-              <ul className="space-y-4 text-sm">
-                <li>
-                  <a
-                    href={`mailto:${contactData.email}`}
-                    className="text-[#737373] hover:text-[#10b981] transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="w-8 h-8 rounded-lg bg-[#10b981]/10 flex items-center justify-center group-hover:bg-[#10b981]/20 transition-colors">
-                      <span className="text-[#10b981] text-xs">@</span>
-                    </span>
-                    {contactData.email}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={`tel:${contactData.phone}`}
-                    className="text-[#737373] hover:text-[#10b981] transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="w-8 h-8 rounded-lg bg-[#d4af37]/10 flex items-center justify-center group-hover:bg-[#d4af37]/20 transition-colors">
-                      <span className="text-[#d4af37] text-xs">📞</span>
-                    </span>
-                    {contactData.phone}
-                  </a>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-lg bg-[#3b82f6]/10 flex items-center justify-center">
-                    <span className="text-[#3b82f6] text-xs">📍</span>
-                  </span>
-                  <span className="text-[#737373]">{contactData.location}</span>
-                </li>
+              <h4 className="text-white font-semibold mb-6">Get In Touch</h4>
+              <ul className="space-y-4 text-sm text-[#737373]">
+                <li>{contactData.email}</li>
+                <li>{contactData.phone}</li>
+                <li>{contactData.location}</li>
               </ul>
             </div>
           </div>
         </div>
 
-        {/* Newsletter Section */}
+        {/* Newsletter - Responsive Fix */}
         <div className="py-8 border-t border-[#262626]">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h4 className="text-[#f5f5f5] font-semibold mb-2">Stay Updated</h4>
-              <p className="text-[#737373] text-sm">Get notified about my latest projects and updates.</p>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div className="w-full md:w-auto">
+              <h4 className="text-white font-semibold mb-1">Stay Updated</h4>
+              <p className="text-sm text-[#737373]">
+                Get notified about new projects and updates.
+              </p>
             </div>
-            <form className="flex gap-3 w-full md:w-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 md:w-64 px-4 py-3 bg-[#111111] border border-[#262626] rounded-lg text-[#f5f5f5] placeholder-[#737373] focus:outline-none focus:border-[#10b981] transition-colors"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-gradient-green text-[#0a0a0a] font-semibold rounded-lg hover:opacity-90 transition-opacity btn-interactive"
+
+            {state.succeeded ? (
+              <div className="w-full md:w-auto flex justify-center md:justify-start">
+                <p className="text-[#10b981] font-medium text-center md:text-left">
+                  Thanks for joining! 🎉
+                </p>
+              </div>
+            ) : (
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col sm:flex-row gap-3 w-full md:w-auto"
               >
-                Subscribe
-              </button>
-            </form>
+                <div className="flex-1 w-full">
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="Enter your email"
+                    className="w-full px-4 py-3 bg-[#111111] border border-[#262626] rounded-lg text-white placeholder-[#737373] focus:outline-none focus:border-[#10b981]"
+                  />
+                  <ValidationError
+                    prefix="Email"
+                    field="email"
+                    errors={state.errors}
+                    className="text-red-500 text-xs mt-1"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={state.submitting}
+                  className="w-full sm:w-auto px-6 py-3 bg-gradient-green text-[#0a0a0a] font-semibold rounded-lg disabled:opacity-50 hover:opacity-90 transition-opacity"
+                >
+                  {state.submitting ? "Submitting..." : "Subscribe"}
+                </button>
+              </form>
+            )}
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-6 border-t border-[#262626] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="py-6 border-t border-[#262626] flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-[#737373] text-sm flex items-center gap-2">
-            &copy; {currentYear} Muhammad Awais. Built with{" "}
-            <FaHeart className="text-red-500 text-xs animate-pulse" /> using Next.js
+            © {currentYear} Muhammad Awais. Built with
+            <FaHeart className="text-red-500 text-xs animate-pulse" /> using
+            Next.js
           </p>
 
-          {/* Back to Top */}
           <motion.button
             onClick={scrollToTop}
-            className="flex items-center gap-2 px-4 py-2 text-[#737373] hover:text-[#10b981] text-sm transition-colors bg-[#111111] rounded-full border border-[#262626] hover:border-[#10b981]/30"
-            whileHover={{ y: -2 }}
+            className="flex items-center gap-2 px-5 py-2.5 text-[#0a0a0a] font-semibold text-sm bg-gradient-green rounded-full border border-transparent hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300"
+            whileHover={{ y: -3, scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Back to Top
-            <FaArrowUp className="text-xs" />
+            Back to Top 
+            <motion.span
+              animate={{ y: [0, -3, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            >
+              <FaArrowUp className="text-xs ml-1" />
+            </motion.span>
           </motion.button>
         </div>
       </div>

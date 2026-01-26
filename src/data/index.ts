@@ -17,7 +17,13 @@ import {
   SiOpenai,
   SiBootstrap,
   SiSupabase,
-  SiSanity
+  SiSanity,
+  SiAuth0,
+  SiStripe,
+  SiPandas,
+  SiPlotly,
+  SiPrisma,
+  SiStreamlit
 } from "react-icons/si";
 import { FaGithub, FaLinkedin, FaGlobe, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import { IconType } from "react-icons";
@@ -123,6 +129,14 @@ export const skillsData: SkillCategory[] = [
     ],
   },
   {
+  title: "Payments & Auth",
+  skills: [
+    { name: "Stripe", icon: SiStripe, level: "Advanced" },
+    { name: "Stripe Connect", icon: SiStripe, level: "Intermediate" },
+    { name: "Authentication & Authorization", icon: SiAuth0, level: "Advanced" },
+  ],
+},
+{
     title: "Tools & Platforms",
     skills: [
       { name: "Git", icon: SiGit, level: "Expert" },
@@ -149,7 +163,7 @@ export const softSkills = [
   "Problem Solving",
   "Team Collaboration",
   "Communication",
-  "Agile Methodology",
+  "Adaptability",
   "Project Management",
   "Critical Thinking",
 ];
@@ -169,63 +183,111 @@ export const projectsData: Project[] = [
   {
     title: "Kids Code & Stories",
     description:
-      "An interactive educational platform designed to teach coding concepts to children through engaging stories and hands-on exercises. Features a gamified learning experience with progress tracking.",
+      "A production-ready educational platform that helps children learn programming concepts through interactive stories, exercises, and gamified progress tracking. Includes parent monitoring and admin content management.",
     features: [
-      "User authentication & profiles",
-      "Interactive coding exercises",
-      "Real-time progress updates",
-      "Gamified learning experience",
+      "Authentication & user profiles",
+      "Interactive coding lessons",
+      "Gamified rewards & badges",
+      "Parent progress tracking",
+      "Admin-managed dynamic content",
     ],
     techStack: [
       { name: "Next.js", icon: SiNextdotjs },
       { name: "React", icon: SiReact },
-      { name: "Supabase", icon: SiSupabase },
+      { name: "Firebase", icon: SiFirebase },
       { name: "Tailwind CSS", icon: SiTailwindcss },
     ],
-    github: "https://github.com/Awais-codes/code-stories",
+    github: "https://github.com/mhaawais/childrens-website",
     liveDemo: "https://kids-code-stories.vercel.app",
     image: "/images/project-kids-code.png",
   },
+
   {
-    title: "Content Management System",
+    title: "Smart Content Management System",
     description:
-      "A comprehensive CMS platform with role-based access control, real-time collaborative editing, and a responsive dashboard. Built for enterprise-level content management needs.",
+      "A private, role-based CMS built for managing books, media assets, blogs, and web content. Designed with scalability, security, and performance in mind.",
     features: [
       "Role-based access control",
-      "Real-time collaborative editing",
-      "Responsive admin dashboard",
-      "SEO optimization tools",
+      "Authentication & authorization",
+      "Admin dashboard",
+      "Database seeding & migrations",
+      "SEO-ready content structure",
+    ],
+    techStack: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Prisma", icon: SiPrisma },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+    ],
+    github: "https://github.com/mhaawais/database",
+    image: "/images/project-cms.png",
+  },
+
+  {
+    title: "E-Commerce Furniture Marketplace",
+    description:
+      "A full-stack e-commerce marketplace with vendor management, secure payments, and advanced product discovery. Built to support real-world business workflows.",
+    features: [
+      "Product catalog & advanced search",
+      "Cart & checkout flow",
+      "Stripe Connect payments",
+      "Vendor management",
+      "CMS-powered content",
+    ],
+    techStack: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Stripe", icon: SiStripe },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "Sanity", icon: SiSanity },
+    ],
+    github: "https://github.com/mhaawais/Ecommerce-Hackathon",
+    liveDemo: "https://ecommerce-hackathon.vercel.app",
+    image: "/images/project-ecommerce.png",
+  },
+
+  {
+    title: "AI-Powered Data Sweeper",
+    description:
+      "A Python-based data processing tool that transforms CSV and Excel files with built-in data cleaning, analysis, and visualization features.",
+    features: [
+      "CSV & Excel transformation",
+      "Data cleaning & normalization",
+      "Statistical analysis",
+      "Interactive visualizations",
+    ],
+    techStack: [
+      { name: "Python", icon: SiPython },
+      { name: "Streamlit", icon: SiStreamlit },
+      { name: "Pandas", icon: SiPandas },
+      { name: "Matplotlib", icon: SiPlotly },
+    ],
+    github: "https://github.com/mhaawais/Datasweeper-python",
+    liveDemo: "https://datasweeper.streamlit.app",
+    image: "/images/project-datasweeper.png",
+  },
+
+  {
+    title: "Business & Agency Websites",
+    description:
+      "A collection of real-world business websites designed, developed, and deployed for clients across different industries.",
+    features: [
+      "Responsive UI & UX",
+      "Client-specific customizations",
+      "SEO-friendly pages",
+      "Production deployments",
     ],
     techStack: [
       { name: "Next.js", icon: SiNextdotjs },
       { name: "React", icon: SiReact },
-      { name: "TypeScript", icon: SiTypescript },
       { name: "Tailwind CSS", icon: SiTailwindcss },
     ],
-    github: "https://github.com/Awais-codes/cms-project",
-    image: "/images/project-cms.png",
-  },
-  {
-    title: "E-Commerce Store",
-    description:
-      "A full-featured e-commerce platform with product catalog, shopping cart, secure checkout, and admin dashboard. Integrated with Sanity CMS for content management.",
-    features: [
-      "Product catalog & search",
-      "Shopping cart & checkout",
-      "Admin dashboard",
-      "Payment integration",
-    ],
-    techStack: [
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "Sanity", icon: SiSanity },
-      { name: "TypeScript", icon: SiTypescript },
-    ],
-    github: "https://github.com/Awais-codes/ecommerce-store",
-    liveDemo: "https://ecommerce-store-demo.vercel.app",
-    image: "/images/project-ecommerce.png",
+    github: "https://github.com/mhaawais",
+    image: "/images/project-agency.png",
   },
 ];
+
 
 // Work Experience Data
 export interface Experience {

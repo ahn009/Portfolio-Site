@@ -20,7 +20,7 @@ export default function ContactPageContent() {
   const infoRef = useRef<HTMLDivElement>(null);
 
   // Formspree hook with ID
-  const [state, handleSubmit] = useForm("mjgkkepv");
+  const [state, handleSubmit] = useForm("mreqbbeq");
 
   // Prevent hydration mismatch
   useEffect(() => {
@@ -60,28 +60,28 @@ export default function ContactPageContent() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#d4af37]/5 rounded-full blur-3xl" />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div ref={headerRef} className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 text-[#10b981] text-sm font-medium bg-[#10b981]/10 rounded-full mb-4">
+          <div ref={headerRef} className="text-center mb-8 md:mb-16">
+            <span className="inline-block px-4 py-1.5 text-[#10b981] text-sm font-medium bg-[#10b981]/10 rounded-full mb-3 md:mb-4">
               Let&apos;s Connect
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               Get In Touch
             </h1>
-            <p className="text-[#737373] max-w-2xl mx-auto text-lg mb-6">
+            <p className="text-[#737373] max-w-2xl mx-auto text-base sm:text-lg px-4 sm:px-0 mb-6">
               Have a project in mind or want to collaborate? Feel free to reach
               out. I&apos;m always open to discussing new opportunities.
             </p>
             <div className="w-24 h-1 bg-gradient-green mx-auto rounded-full" />
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 px-4 sm:px-6 lg:px-0">
             {/* Contact Info */}
-            <div ref={infoRef} className="space-y-8">
-              <div>
-                <h3 className="text-2xl font-bold text-[#f5f5f5] mb-6">
+            <div ref={infoRef} className="space-y-6 md:space-y-8">
+              <div className="text-center md:text-left">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#f5f5f5] mb-4 md:mb-6">
                   Contact Information
                 </h3>
-                <p className="text-[#a3a3a3] leading-relaxed mb-8">
+                <p className="text-[#a3a3a3] leading-relaxed text-sm sm:text-base mb-6 md:mb-8">
                   I&apos;m currently available for freelance work and full-time
                   positions. If you have a project that needs coding or you want
                   to hire me, feel free to contact me through any of the following.
@@ -91,15 +91,15 @@ export default function ContactPageContent() {
               {/* Contact Cards */}
               <motion.a
                 href={`mailto:${contactData.email}`}
-                className="flex items-center gap-5 p-6 bg-[#111111] rounded-2xl border border-[#262626] hover:border-[#10b981]/30 transition-all group"
-                whileHover={{ x: 10, scale: 1.02 }}
+                className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 p-4 sm:p-6 bg-[#111111] rounded-xl sm:rounded-2xl border border-[#262626] hover:border-[#10b981]/30 transition-all group"
+                whileHover={{ x: 5, scale: 1.01 }}
               >
-                <div className="w-16 h-16 rounded-xl bg-[#10b981]/10 flex items-center justify-center group-hover:bg-[#10b981]/20 transition-colors">
-                  <FaEnvelope className="w-7 h-7 text-[#10b981]" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-[#10b981]/10 flex items-center justify-center group-hover:bg-[#10b981]/20 transition-colors">
+                  <FaEnvelope className="w-5 h-5 sm:w-7 sm:h-7 text-[#10b981]" />
                 </div>
-                <div>
-                  <p className="text-[#737373] text-sm mb-1">Email</p>
-                  <p className="text-[#f5f5f5] font-semibold text-lg">
+                <div className="flex-1">
+                  <p className="text-[#737373] text-xs sm:text-sm mb-1">Email</p>
+                  <p className="text-[#f5f5f5] font-semibold text-sm sm:text-base md:text-lg break-all">
                     {contactData.email}
                   </p>
                 </div>
@@ -107,39 +107,39 @@ export default function ContactPageContent() {
 
               <motion.a
                 href={`tel:${contactData.phone}`}
-                className="flex items-center gap-5 p-6 bg-[#111111] rounded-2xl border border-[#262626] hover:border-[#d4af37]/30 transition-all group"
-                whileHover={{ x: 10, scale: 1.02 }}
+                className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 p-4 sm:p-6 bg-[#111111] rounded-xl sm:rounded-2xl border border-[#262626] hover:border-[#d4af37]/30 transition-all group"
+                whileHover={{ x: 5, scale: 1.01 }}
               >
-                <div className="w-16 h-16 rounded-xl bg-[#d4af37]/10 flex items-center justify-center group-hover:bg-[#d4af37]/20 transition-colors">
-                  <FaPhone className="w-7 h-7 text-[#d4af37]" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-[#d4af37]/10 flex items-center justify-center group-hover:bg-[#d4af37]/20 transition-colors">
+                  <FaPhone className="w-5 h-5 sm:w-7 sm:h-7 text-[#d4af37]" />
                 </div>
-                <div>
-                  <p className="text-[#737373] text-sm mb-1">Phone</p>
-                  <p className="text-[#f5f5f5] font-semibold text-lg">
+                <div className="flex-1">
+                  <p className="text-[#737373] text-xs sm:text-sm mb-1">Phone</p>
+                  <p className="text-[#f5f5f5] font-semibold text-sm sm:text-base md:text-lg">
                     {contactData.phone}
                   </p>
                 </div>
               </motion.a>
 
               <motion.div
-                className="flex items-center gap-5 p-6 bg-[#111111] rounded-2xl border border-[#262626]"
-                whileHover={{ x: 10, scale: 1.02 }}
+                className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 p-4 sm:p-6 bg-[#111111] rounded-xl sm:rounded-2xl border border-[#262626]"
+                whileHover={{ x: 5, scale: 1.01 }}
               >
-                <div className="w-16 h-16 rounded-xl bg-[#3b82f6]/10 flex items-center justify-center">
-                  <FaMapMarkerAlt className="w-7 h-7 text-[#3b82f6]" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-[#3b82f6]/10 flex items-center justify-center">
+                  <FaMapMarkerAlt className="w-5 h-5 sm:w-7 sm:h-7 text-[#3b82f6]" />
                 </div>
-                <div>
-                  <p className="text-[#737373] text-sm mb-1">Location</p>
-                  <p className="text-[#f5f5f5] font-semibold text-lg">
+                <div className="flex-1">
+                  <p className="text-[#737373] text-xs sm:text-sm mb-1">Location</p>
+                  <p className="text-[#f5f5f5] font-semibold text-sm sm:text-base md:text-lg">
                     {contactData.location}
                   </p>
                 </div>
               </motion.div>
 
               {/* Social Links */}
-              <div className="pt-6">
-                <p className="text-[#737373] text-sm mb-4">Connect with me on</p>
-                <div className="flex gap-4">
+              <div className="pt-4 md:pt-6">
+                <p className="text-[#737373] text-xs sm:text-sm mb-3 md:mb-4 text-center md:text-left">Connect with me on</p>
+                <div className="flex gap-3 md:gap-4 justify-center md:justify-start">
                   {contactData.social.map((social) => {
                     const Icon = social.icon;
                     return (
@@ -148,12 +148,12 @@ export default function ContactPageContent() {
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-14 h-14 rounded-xl bg-[#111111] border border-[#262626] flex items-center justify-center text-[#a3a3a3] hover:text-[#10b981] hover:border-[#10b981]/30 hover:bg-[#10b981]/5 transition-all"
-                        whileHover={{ y: -5, scale: 1.1 }}
+                        className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl bg-[#111111] border border-[#262626] flex items-center justify-center text-[#a3a3a3] hover:text-[#10b981] hover:border-[#10b981]/30 hover:bg-[#10b981]/5 transition-all"
+                        whileHover={{ y: -3, scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         aria-label={social.name}
                       >
-                        <Icon className="w-6 h-6" />
+                        <Icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                       </motion.a>
                     );
                   })}
@@ -164,9 +164,9 @@ export default function ContactPageContent() {
             {/* Contact Form */}
             <motion.form
               onSubmit={handleSubmit}
-              className="bg-[#111111] rounded-2xl p-8 md:p-10 border border-[#262626]"
+              className="bg-[#111111] rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 border border-[#262626]"
             >
-              <h3 className="text-2xl font-bold text-[#f5f5f5] mb-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#f5f5f5] mb-6 md:mb-8">
                 Send me a message
               </h3>
 
@@ -180,7 +180,7 @@ export default function ContactPageContent() {
                   <p className="text-lg font-semibold">Thanks for your message! I&apos;ll get back to you soon.</p>
                 </motion.div>
               ) : (
-                <div className="space-y-6">
+                <div className="space-y-4 sm:space-y-6">
                   {/* Name Field */}
                   <div>
                     <label
@@ -195,7 +195,7 @@ export default function ContactPageContent() {
                       name="name"
                       required
                       placeholder="John Doe"
-                      className="w-full px-5 py-4 bg-[#0a0a0a] border border-[#262626] rounded-xl text-[#f5f5f5] placeholder-[#737373] focus:outline-none focus:border-[#10b981] transition-colors"
+                      className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-[#0a0a0a] border border-[#262626] rounded-lg sm:rounded-xl text-[#f5f5f5] placeholder-[#737373] focus:outline-none focus:border-[#10b981] transition-colors text-sm sm:text-base"
                     />
                   </div>
 
@@ -213,7 +213,7 @@ export default function ContactPageContent() {
                       name="email"
                       required
                       placeholder="john@example.com"
-                      className="w-full px-5 py-4 bg-[#0a0a0a] border border-[#262626] rounded-xl text-[#f5f5f5] placeholder-[#737373] focus:outline-none focus:border-[#10b981] transition-colors"
+                      className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-[#0a0a0a] border border-[#262626] rounded-lg sm:rounded-xl text-[#f5f5f5] placeholder-[#737373] focus:outline-none focus:border-[#10b981] transition-colors text-sm sm:text-base"
                     />
                     <ValidationError 
                       prefix="Email" 
@@ -235,7 +235,7 @@ export default function ContactPageContent() {
                       id="subject"
                       name="subject"
                       placeholder="Project Inquiry"
-                      className="w-full px-5 py-4 bg-[#0a0a0a] border border-[#262626] rounded-xl text-[#f5f5f5] placeholder-[#737373] focus:outline-none focus:border-[#10b981] transition-colors"
+                      className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-[#0a0a0a] border border-[#262626] rounded-lg sm:rounded-xl text-[#f5f5f5] placeholder-[#737373] focus:outline-none focus:border-[#10b981] transition-colors text-sm sm:text-base"
                     />
                   </div>
 
@@ -251,9 +251,9 @@ export default function ContactPageContent() {
                       id="message"
                       name="message"
                       required
-                      rows={6}
+                      rows={5}
                       placeholder="Tell me about your project..."
-                      className="w-full px-5 py-4 bg-[#0a0a0a] border border-[#262626] rounded-xl text-[#f5f5f5] placeholder-[#737373] focus:outline-none focus:border-[#10b981] transition-colors resize-none"
+                      className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-[#0a0a0a] border border-[#262626] rounded-lg sm:rounded-xl text-[#f5f5f5] placeholder-[#737373] focus:outline-none focus:border-[#10b981] transition-colors text-sm sm:text-base resize-none"
                     />
                     <ValidationError 
                       prefix="Message" 
@@ -266,7 +266,7 @@ export default function ContactPageContent() {
                   <motion.button
                     type="submit"
                     disabled={state.submitting}
-                    className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-green text-[#0a0a0a] font-semibold rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full flex items-center justify-center gap-3 px-6 py-3 sm:py-4 bg-gradient-green text-[#0a0a0a] font-semibold rounded-lg sm:rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -292,11 +292,11 @@ export default function ContactPageContent() {
       </section>
 
       {/* Map Section Placeholder */}
-      <section className="h-80 bg-[#111111] relative">
+      <section className="h-60 sm:h-80 bg-[#111111] relative">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
-            <FaMapMarkerAlt className="w-12 h-12 text-[#10b981] mx-auto mb-4" />
-            <p className="text-[#737373]">Based in {contactData.location}</p>
+            <FaMapMarkerAlt className="w-8 h-8 sm:w-12 sm:h-12 text-[#10b981] mx-auto mb-3 sm:mb-4" />
+            <p className="text-[#737373] text-sm sm:text-base">Based in {contactData.location}</p>
           </div>
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a] pointer-events-none" />
