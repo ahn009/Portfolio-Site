@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { navLinks, contactData } from "@/data";
-import { FaHeart, FaArrowUp } from "react-icons/fa";
+import { FaHeart, FaArrowUp, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useForm, ValidationError } from "@formspree/react";
@@ -63,19 +63,19 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main Content */}
         <div ref={contentRef} className="py-16 md:py-20">
-          <div className="grid md:grid-cols-4 gap-12">
+          <div className="grid md:grid-cols-4 gap-8 md:gap-12">
             {/* Brand */}
             <div className="md:col-span-2 space-y-6">
               <Link href="/" className="inline-block">
                 <span className="text-4xl font-bold text-gradient">MA</span>
               </Link>
-              <p className="text-[#a3a3a3] max-w-md">
+              <p className="text-[#a3a3a3] max-w-md text-sm md:text-base">
                 Full Stack Developer specializing in building scalable SaaS
                 products and production-ready web applications.
               </p>
 
               {/* Social */}
-              <div className="flex gap-4">
+              <div className="flex gap-3 md:gap-4">
                 {contactData.social.map((social) => {
                   const Icon = social.icon;
                   return (
@@ -84,11 +84,11 @@ export default function Footer() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-xl bg-[#111111] border border-[#262626] flex items-center justify-center text-[#737373] hover:text-[#10b981] hover:border-[#10b981]/30 transition"
+                      className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[#111111] border border-[#262626] flex items-center justify-center text-[#737373] hover:text-[#10b981] hover:border-[#10b981]/30 transition"
                       whileHover={{ y: -3, scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Icon className="w-5 h-5" />
+                      <Icon className="w-4 h-4 md:w-5 md:h-5" />
                     </motion.a>
                   );
                 })}
@@ -96,29 +96,52 @@ export default function Footer() {
             </div>
 
             {/* Quick Links */}
-            <div>
+            <div className="relative group">
               <h4 className="text-white font-semibold mb-6">Quick Links</h4>
               <ul className="space-y-4">
                 {navLinks.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-[#737373] hover:text-[#10b981] text-sm"
+                      className="text-[#737373] hover:text-[#10b981] text-sm md:text-base transition-colors duration-300"
                     >
                       {link.name}
                     </Link>
                   </li>
                 ))}
               </ul>
+              {/* Linear gradient line - appears on hover only */}
+              <div className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-[#10b981] to-[#d4af37] transition-all duration-500 ease-out rounded-full opacity-0 group-hover:opacity-100"></div>
             </div>
 
             {/* Contact */}
             <div>
               <h4 className="text-white font-semibold mb-6">Get In Touch</h4>
-              <ul className="space-y-4 text-sm text-[#737373]">
-                <li>{contactData.email}</li>
-                <li>{contactData.phone}</li>
-                <li>{contactData.location}</li>
+              <ul className="space-y-4 text-sm md:text-base text-[#737373]">
+                <li className="flex items-start md:items-center gap-3">
+                  <FaEnvelope className="text-[#10b981] w-4 h-4 flex-shrink-0 mt-0.5" />
+                  <a 
+                    href={`mailto:${contactData.email}`}
+                    className="hover:text-[#10b981] transition-colors duration-300 break-words"
+                  >
+                    {contactData.email}
+                  </a>
+                </li>
+                <li className="flex items-start md:items-center gap-3">
+                  <FaPhoneAlt className="text-[#10b981] w-4 h-4 flex-shrink-0 mt-0.5" />
+                  <a 
+                    href={`tel:${contactData.phone}`}
+                    className="hover:text-[#10b981] transition-colors duration-300"
+                  >
+                    {contactData.phone}
+                  </a>
+                </li>
+                <li className="flex items-start md:items-center gap-3">
+                  <FaMapMarkerAlt className="text-[#10b981] w-4 h-4 flex-shrink-0 mt-0.5" />
+                  <span className="hover:text-[#10b981] transition-colors duration-300">
+                    {contactData.location}
+                  </span>
+                </li>
               </ul>
             </div>
           </div>
@@ -151,7 +174,7 @@ export default function Footer() {
                     name="email"
                     required
                     placeholder="Enter your email"
-                    className="w-full px-4 py-3 bg-[#111111] border border-[#262626] rounded-lg text-white placeholder-[#737373] focus:outline-none focus:border-[#10b981]"
+                    className="w-full px-4 py-3 bg-[#111111] border border-[#262626] rounded-lg text-white placeholder-[#737373] focus:outline-none focus:border-[#10b981] text-sm md:text-base"
                   />
                   <ValidationError
                     prefix="Email"
@@ -163,7 +186,7 @@ export default function Footer() {
                 <button
                   type="submit"
                   disabled={state.submitting}
-                  className="w-full sm:w-auto px-6 py-3 bg-gradient-green text-[#0a0a0a] font-semibold rounded-lg disabled:opacity-50 hover:opacity-90 transition-opacity"
+                  className="w-full sm:w-auto px-6 py-3 bg-gradient-green text-[#0a0a0a] font-semibold rounded-lg disabled:opacity-50 hover:opacity-90 transition-opacity text-sm md:text-base"
                 >
                   {state.submitting ? "Submitting..." : "Subscribe"}
                 </button>

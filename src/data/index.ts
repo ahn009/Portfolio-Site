@@ -198,7 +198,7 @@ export const projectsData: Project[] = [
       { name: "Tailwind CSS", icon: SiTailwindcss },
     ],
     github: "https://github.com/mhaawais/childrens-website",
-    liveDemo: "https://kids-code-stories.vercel.app",
+    liveDemo: "https://www.kindercode.io/#/",
     image: "/images/project-kids-code.png",
   },
 
@@ -221,6 +221,7 @@ export const projectsData: Project[] = [
       { name: "Tailwind CSS", icon: SiTailwindcss },
     ],
     github: "https://github.com/mhaawais/database",
+    liveDemo: "https://admin-marypeeofficial.vercel.app/#/",
     image: "/images/project-cms.png",
   },
 
@@ -243,7 +244,7 @@ export const projectsData: Project[] = [
       { name: "Sanity", icon: SiSanity },
     ],
     github: "https://github.com/mhaawais/Ecommerce-Hackathon",
-    liveDemo: "https://ecommerce-hackathon.vercel.app",
+    liveDemo: "https://final-hackathon-two.vercel.app/",
     image: "/images/project-ecommerce.png",
   },
 
@@ -264,7 +265,6 @@ export const projectsData: Project[] = [
       { name: "Matplotlib", icon: SiPlotly },
     ],
     github: "https://github.com/mhaawais/Datasweeper-python",
-    liveDemo: "https://datasweeper.streamlit.app",
     image: "/images/project-datasweeper.png",
   },
 
@@ -309,6 +309,7 @@ export const experienceData: Experience[] = [
     responsibilities: [
       "Lead full-stack development projects using Next.js and Node.js",
       "Develop and maintain CMS platform serving multiple clients",
+      "At S-Tech, I also dveloped Custom Databases for various applications",
       "Built and optimized databases for 5+ production applications",
       "Implemented API integrations improving data retrieval efficiency by 30%",
       "Collaborate with design team to create responsive, accessible UIs",
@@ -321,7 +322,7 @@ export const experienceData: Experience[] = [
     location: "Europe (Remote)",
     responsibilities: [
       "Developed 'Kids Code & Stories' educational platform",
-      "Improved application performance by 25% through optimization",
+      "Improved application performance by 125% through optimization",
       "Implemented real-time features using Supabase",
       "Collaborated with international team across time zones",
     ],
@@ -372,7 +373,7 @@ export const contactData = {
     },
     {
       name: "Portfolio",
-      url: "https://myportfolio-website-six.vercel.app/",
+      url: "https://muhammad-awais-portfolio.vercel.app/#/",
       icon: FaGlobe,
     },
   ],
