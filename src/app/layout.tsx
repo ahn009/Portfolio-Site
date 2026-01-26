@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   title: "Muhammad Awais | Full Stack Developer & AI Enthusiast",
   description:
     "Portfolio of Muhammad Awais - Full Stack Developer specializing in MERN Stack, Next.js, React, and AI-driven solutions. Building high-performance web applications.",
+  verification: {
+    google: "qaffrCRgQTIweoljI3L7It6hQEI7tjESpBOZ71gx2hQ",
+  },
   keywords: [
     "Muhammad Awais",
     "Full Stack Developer",
