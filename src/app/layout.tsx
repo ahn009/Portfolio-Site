@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://muhammadawais.dev"),
-  title: "Muhammad Awais | Full Stack Developer & React Specialist",
+  title: "Muhammad Awais | Full Stack Developer | MERN Stack & Ai Developer",
   description:
     "Full Stack Developer specializing in Next.js, React, Node.js, and AI-powered solutions. 3+ years building scalable web applications for startups and enterprises. Available for freelance projects and full-time roles.",
   verification: {
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://muhammadawais.dev",
     siteName: "Muhammad Awais - Full Stack Developer",
-    title: "Muhammad Awais | Full Stack Developer & React Specialist",
+    title: "Muhammad Awais | Full Stack Developer | MERN Stack & Ai Developer",
     description:
       "Building production-grade web applications with Next.js, React, Node.js. 3+ years of experience. Specializing in performance optimization and AI integration.",
     images: [
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Muhammad Awais - Full Stack Developer & React Specialist",
+        alt: "Muhammad Awais - Full Stack Developer | MERN Stack & Ai Developer",
       },
     ],
   },

@@ -39,7 +39,7 @@ export const navLinks = [
 // Hero Section Data
 export const heroData = {
   name: "Muhammad Awais",
-  headline: "Full Stack Developer & React Specialist",
+  headline: "Full Stack Developer | MERN Stack & Ai Developer",
   subheadline:
     "Building scalable web applications and AI-powered solutions. Expert in Next.js, React, Node.js, and modern full-stack development. Delivering production-ready applications that drive business growth.",
   profileImage: "/images/profile.jpg",

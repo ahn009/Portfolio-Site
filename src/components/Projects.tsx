@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 import { projectsData } from "@/data";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
@@ -51,13 +52,27 @@ export default function Projects() {
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden bg-[#1a1a1a]">
+                {/* Display actual project image */}
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  priority={false}
+                  onError={(e) => {
+                    // Fallback if image fails to load
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+                {/* Fallback gradient when image is not loaded */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/20 to-[#3b82f6]/20 flex items-center justify-center">
                   <span className="text-4xl font-bold text-gradient opacity-50">
                     {project.title.split(" ").map(w => w[0]).join("")}
                   </span>
                 </div>
                 {/* Overlay on Hover */}
-                <div className="absolute inset-0 bg-[#0a0a0a]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                <div className="absolute inset-0 bg-[#0a0a0a]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-10">
                   <a
                     href={project.github}
                     target="_blank"

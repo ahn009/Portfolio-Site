@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { projectsData } from "@/data";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
@@ -128,6 +129,20 @@ export default function ProjectsPageContent() {
                 >
                   {/* Project Image */}
                   <div className="relative h-56 overflow-hidden bg-[#1a1a1a]">
+                    {/* Display actual project image */}
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      priority={false}
+                      onError={(e) => {
+                        // Fallback if image fails to load
+                        e.currentTarget.style.display = "none";
+                      }}
+                    />
+                    {/* Fallback gradient when image is not loaded */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[#10b981]/20 via-[#d4af37]/10 to-[#3b82f6]/20 flex items-center justify-center">
                       <motion.span 
                         className="text-5xl font-bold text-gradient opacity-50"
@@ -138,7 +153,7 @@ export default function ProjectsPageContent() {
                     </div>
                     
                     {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-[#0a0a0a]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                    <div className="absolute inset-0 bg-[#0a0a0a]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-10">
                       <motion.a
                         href={project.github}
                         target="_blank"

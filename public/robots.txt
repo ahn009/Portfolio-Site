@@ -16,7 +16,7 @@ Disallow: /api/
 Disallow: *.json$
 
 # Sitemap location
-Sitemap: https://muhammadawais.dev/sitemap.xml
+Sitemap: https://muhammad-awais-portfolio.vercel.app/sitemap.xml
 
 # Crawl delay (adjust based on server capacity)
 Crawl-delay: 1
