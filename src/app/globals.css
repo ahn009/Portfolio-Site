@@ -353,6 +353,10 @@ html.light ::selection {
   animation: shimmer 2s infinite;
 }
 
+.delay-1000 {
+  animation-delay: 1000ms;
+}
+
 /* Page Transition Styles */
 .page-transition {
   opacity: 0;

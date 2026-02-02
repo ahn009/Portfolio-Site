@@ -193,33 +193,33 @@ export default function HomePage() {
             </div>
 
             {/* Profile Image */}
-            <div ref={imageRef} className="flex justify-center lg:justify-end">
-              <div className="relative">
+            <div ref={imageRef} className="flex justify-center lg:justify-end px-2 sm:px-0">
+              <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
                 {/* Decorative Ring */}
                 <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-[#10b981] via-[#d4af37] to-[#3b82f6] blur-lg opacity-60 animate-pulse" />
                 
                 {/* Image Container */}
-                <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#10b981]/30 shadow-2xl shadow-[#10b981]/20">
+                <div className="relative w-full aspect-square rounded-full overflow-hidden border-4 border-[#10b981]/30 shadow-2xl shadow-[#10b981]/20">
                   <Image
                     src="/images/profile.jpg"
                     alt="Muhammad Awais - Full Stack Developer"
                     fill
                     className="object-cover object-top"
                     priority
-                    sizes="(max-width: 768px) 288px, (max-width: 1024px) 320px, 384px"
+                    sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 768px) calc(100vw - 48px), (max-width: 1024px) 400px, 480px"
                   />
                 </div>
 
                 {/* Floating Badges */}
                 <motion.div
-                  className="absolute -top-4 -right-4 px-4 py-2 bg-[#111111] border border-[#262626] rounded-full text-sm text-[#10b981] font-medium shadow-lg"
+                  className="absolute -top-4 -right-4 px-3 sm:px-4 py-2 bg-[#111111] border border-[#262626] rounded-full text-xs sm:text-sm text-[#10b981] font-medium shadow-lg whitespace-nowrap"
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
                   Next.js Expert
                 </motion.div>
                 <motion.div
-                  className="absolute -bottom-4 -left-4 px-4 py-2 bg-[#111111] border border-[#262626] rounded-full text-sm text-[#d4af37] font-medium shadow-lg"
+                  className="absolute -bottom-4 -left-4 px-3 sm:px-4 py-2 bg-[#111111] border border-[#262626] rounded-full text-xs sm:text-sm text-[#d4af37] font-medium shadow-lg whitespace-nowrap"
                   animate={{ y: [0, 10, 0] }}
                   transition={{ duration: 2.5, repeat: Infinity }}
                 >
