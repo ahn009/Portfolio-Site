@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { heroData, skillsData, projectsData } from "@/data";
+import Image from "next/image"; // Single import
+import { motion } from "framer-motion"; // Single import
+import { heroData, skillsData, projectsData } from "@/data"; // Single import
 import { FaArrowRight, FaDownload, FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -321,7 +321,9 @@ export default function HomePage() {
             <span className="inline-block px-4 py-1.5 text-[#d4af37] text-sm font-medium bg-[#d4af37]/10 rounded-full mb-4">
               Featured Work
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Recent Projects</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Recent Projects
+            </h2>
             <p className="text-[#737373] max-w-2xl mx-auto">
               A glimpse of what I&apos;ve been working on
             </p>
@@ -337,18 +339,28 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="h-48 bg-gradient-to-br from-[#10b981]/20 to-[#d4af37]/20 flex items-center justify-center">
-                  <span className="text-4xl font-bold text-gradient opacity-50">
-                    {project.title.split(" ").map(w => w[0]).join("")}
-                  </span>
+                {/* Project Image */}
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    priority={index === 0}
+                  />
                 </div>
+
+                {/* Content */}
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-[#f5f5f5] mb-2 group-hover:text-[#10b981] transition-colors">
                     {project.title}
                   </h3>
+
                   <p className="text-[#737373] text-sm line-clamp-2 mb-4">
                     {project.description}
                   </p>
+
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.slice(0, 3).map((tech) => (
                       <span

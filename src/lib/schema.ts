@@ -3,8 +3,8 @@ export function generatePersonSchema() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Muhammad Awais",
-    url: "https://muhammadawais.dev",
-    image: "https://muhammadawais.dev/images/profile.jpg",
+    url: "https://muhammad-awais-portfolio.vercel.app/",
+    image: "https://muhammad-awais-portfolio.vercel.app/images/profile.jpg",
     email: "awais8640107@gmail.com",
     jobTitle: "Full Stack Developer",
     description:
@@ -12,7 +12,7 @@ export function generatePersonSchema() {
     sameAs: [
       "https://linkedin.com/in/muhammad-awais-5b37742ba",
       "https://github.com/mhaawais",
-      "https://muhammadawais.dev",
+      "https://muhammad-awais-portfolio.vercel.app/",
     ],
     knowsAbout: [
       "Next.js",
@@ -38,14 +38,14 @@ export function generateWebsiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Muhammad Awais - Full Stack Developer",
-    url: "https://muhammadawais.dev",
+    url: "https://muhammad-awais-portfolio.vercel.app/",
     description:
       "Portfolio and professional profile of Muhammad Awais, a Full Stack Developer specializing in Next.js, React, and modern web technologies.",
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://muhammadawais.dev/projects",
+        urlTemplate: "https://muhammad-awais-portfolio.vercel.app//projects",
       },
     },
   };
