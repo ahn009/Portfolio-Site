@@ -21,52 +21,56 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://muhammadawais.dev"),
-  title: "Muhammad Awais | Full Stack Developer | MERN Stack & Ai Developer",
+  metadataBase: new URL("https://muhammad-awais-portfolio.vercel.app"),
+  title: "Muhammad Awais - Full Stack Developer & Next.js Expert | MERN Stack & AI",
   description:
-    "Full Stack Developer specializing in Next.js, React, Node.js, and AI-powered solutions. 3+ years building scalable web applications for startups and enterprises. Available for freelance projects and full-time roles.",
+    "Professional portfolio of Muhammad Awais, Full Stack Developer specializing in Next.js, React, MERN Stack, and AI integration. Hire for web development projects. 3+ years of production experience.",
   verification: {
     google: "qaffrCRgQTIweoljI3L7It6hQEI7tjESpBOZ71gx2hQ",
   },
   keywords: [
     "Full Stack Developer",
-    "React Developer",
     "Next.js Developer",
-    "Web Developer",
+    "React Developer",
+    "MERN Stack Developer",
+    "AI Developer",
+    "Web Development",
+    "JavaScript",
+    "TypeScript",
     "Node.js Developer",
-    "Full Stack Web Development",
-    "AI-powered applications",
-    "Business websites",
-    "E-commerce development",
-    "Web application development",
-    "Pakistan developer",
+    "Hire Next.js Developer",
+    "Web Developer Pakistan",
+    "Freelance Web Developer",
+    "Full Stack Development Services",
   ],
   authors: [{ name: "Muhammad Awais" }],
   creator: "Muhammad Awais",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://muhammadawais.dev",
+    url: "https://muhammad-awais-portfolio.vercel.app",
     siteName: "Muhammad Awais - Full Stack Developer",
-    title: "Muhammad Awais | Full Stack Developer | MERN Stack & Ai Developer",
+    title: "Muhammad Awais - Full Stack Developer & Next.js Expert | MERN Stack & AI",
     description:
-      "Building production-grade web applications with Next.js, React, Node.js. 3+ years of experience. Specializing in performance optimization and AI integration.",
+      "Professional portfolio showcasing expertise in Next.js, React, MERN Stack, and AI integration. Available for freelance and full-time opportunities.",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://muhammad-awais-portfolio.vercel.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "Muhammad Awais - Full Stack Developer | MERN Stack & Ai Developer",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Awais | Full Stack Developer",
-    description:
-      "Full Stack Developer specializing in Next.js, React, Node.js, and AI solutions. 130% performance improvements. Available for projects.",
-    images: ["/og-image.png"],
+    site: "@awais8640107",
     creator: "@awais8640107",
+    title: "Muhammad Awais - Full Stack Developer",
+    description:
+      "Full Stack Developer specializing in Next.js, React, Node.js, and AI solutions. 3+ years of production experience. Available for projects.",
+    images: ["https://muhammad-awais-portfolio.vercel.app/og-image.png"],
   },
   robots: {
     index: true,
@@ -85,7 +89,7 @@ export const metadata: Metadata = {
     apple: "/favicon.png",
   },
   alternates: {
-    canonical: "https://muhammadawais.dev",
+    canonical: "https://muhammad-awais-portfolio.vercel.app",
   },
 };
 
@@ -104,10 +108,12 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+          suppressHydrationWarning
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          suppressHydrationWarning
         />
       </head>
       <body
