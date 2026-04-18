@@ -1,28 +1,28 @@
-import { 
-  SiNextdotjs, 
-  SiReact, 
-  SiTailwindcss, 
-  SiTypescript, 
-  SiJavascript, 
-  SiNodedotjs, 
-  SiExpress, 
-  SiPostgresql, 
-  SiMongodb, 
-  SiGit, 
-  SiVercel, 
-  SiFirebase, 
-  SiDocker, 
-  SiFigma, 
-  SiPython, 
+import {
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+  SiJavascript,
+  SiNodedotjs,
+  SiExpress,
+  SiPostgresql,
+  SiMongodb,
+  SiGit,
+  SiGithub,
+  SiVercel,
+  SiFirebase,
+  SiDocker,
+  SiFigma,
+  SiPython,
   SiOpenai,
   SiBootstrap,
   SiSanity,
-  SiAuth0,
   SiStripe,
-  SiPandas,
-  SiPlotly,
-  SiPrisma,
-  SiStreamlit
+  SiSupabase,
+  SiGraphql,
+  SiPhp,
+  SiVite,
 } from "react-icons/si";
 import { FaGithub, FaLinkedin, FaGlobe, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import { IconType } from "react-icons";
@@ -39,9 +39,9 @@ export const navLinks = [
 // Hero Section Data
 export const heroData = {
   name: "Muhammad Awais",
-  headline: "Full Stack Developer | MERN Stack & Ai Developer",
+  headline: "Full Stack Developer | AI Solutions Engineer | MERN & Next.js Specialist",
   subheadline:
-    "Building scalable web applications and AI-powered solutions. Expert in Next.js, React, Node.js, and modern full-stack development. Delivering production-ready applications that drive business growth.",
+    "Results-driven Full Stack Developer with 2.5+ years of experience building high-performance web applications and AI-powered products. Expert in MERN Stack, Next.js, RAG chatbots, and AI agents.",
   profileImage: "/images/profile.jpg",
   ctas: {
     primary: { text: "View My Work", href: "/projects" },
@@ -54,15 +54,15 @@ export const heroData = {
 export const aboutData = {
   title: "About Me",
   paragraphs: [
-    "I'm a Full Stack Developer with 3+ years of experience building production-grade web applications for startups and enterprises. I specialize in Next.js, React, and Node.js, delivering scalable solutions that solve real business problems.",
-    "I focus on clean architecture, performance optimization, and AI integration. My projects have improved application performance by up to 130%, reduced deployment times, and scaled to handle thousands of concurrent users. I combine deep technical expertise with a user-first approach.",
-    "I'm passionate about keeping current with modern web technologies, contributing to open-source communities, and mentoring other developers. I thrive in collaborative environments and believe in shipping quality code that makes an impact.",
+    "Results-driven Full Stack Developer with 2.5+ years of hands-on experience building high-performance, scalable web applications and AI-powered products. Deep expertise in the MERN stack, Next.js, and modern frontend frameworks including Vite and PHP-based backends.",
+    "Proven track record of delivering production-ready eCommerce platforms, CMS solutions, admin dashboards, and live AI products including RAG chatbots, intelligent agents, and automation workflows. Passionate about synchronizing AI capabilities with web development to create next-generation digital experiences.",
+    "Adept at leading cross-functional teams, optimizing application performance, and driving end-to-end product delivery from architecture to deployment. Committed to shipping quality code that makes a measurable business impact.",
   ],
   highlights: [
-    "3+ years building production applications",
-    "Full Stack: Next.js, React, Node.js, PostgreSQL",
-    "Performance optimization & AI integration",
-    "130% average performance improvement",
+    "2.5+ years building production applications",
+    "Full Stack: Next.js, MERN, AI Solutions",
+    "RAG Chatbots, AI Agents & Automation",
+    "Performance optimization & scalable deployments",
   ],
 };
 
@@ -70,9 +70,9 @@ export const aboutData = {
 export const timelineData = [
   {
     year: "2025",
-    title: "Full Stack Developer",
+    title: "Full Stack Developer & AI Solutions Engineer",
     subtitle: "S-Tech Innovative",
-    description: "Leading full-stack development projects and building scalable applications.",
+    description: "Leading full-stack development and AI-powered feature delivery for production applications.",
   },
   {
     year: "2025",
@@ -84,7 +84,13 @@ export const timelineData = [
     year: "2025",
     title: "Web Developer",
     subtitle: "Byte-Forge Solutions (Remote)",
-    description: "Built innovative web applications for European clients.",
+    description: "Built innovative web applications for European clients with 25% performance improvements.",
+  },
+  {
+    year: "2024",
+    title: "Freelance Full Stack Developer",
+    subtitle: "Self-Employed (Remote)",
+    description: "Delivered 10+ client projects including eCommerce stores, dashboards, and AI-powered products.",
   },
   {
     year: "2021",
@@ -112,6 +118,7 @@ export const skillsData: SkillCategory[] = [
     skills: [
       { name: "Next.js", icon: SiNextdotjs, level: "Expert" },
       { name: "React", icon: SiReact, level: "Expert" },
+      { name: "Vite", icon: SiVite, level: "Advanced" },
       { name: "TypeScript", icon: SiTypescript, level: "Advanced" },
       { name: "JavaScript", icon: SiJavascript, level: "Expert" },
       { name: "Tailwind CSS", icon: SiTailwindcss, level: "Expert" },
@@ -123,26 +130,17 @@ export const skillsData: SkillCategory[] = [
     skills: [
       { name: "Node.js", icon: SiNodedotjs, level: "Expert" },
       { name: "Express.js", icon: SiExpress, level: "Advanced" },
-      { name: "PostgreSQL", icon: SiPostgresql, level: "Advanced" },
-      { name: "MongoDB", icon: SiMongodb, level: "Expert" },
+      { name: "PHP", icon: SiPhp, level: "Intermediate" },
+      { name: "GraphQL", icon: SiGraphql, level: "Intermediate" },
     ],
   },
   {
-  title: "Payments & Auth",
-  skills: [
-    { name: "Stripe", icon: SiStripe, level: "Advanced" },
-    { name: "Stripe Connect", icon: SiStripe, level: "Intermediate" },
-    { name: "Authentication & Authorization", icon: SiAuth0, level: "Advanced" },
-  ],
-},
-{
-    title: "Tools & Platforms",
+    title: "Databases",
     skills: [
-      { name: "Git", icon: SiGit, level: "Expert" },
-      { name: "Vercel", icon: SiVercel, level: "Expert" },
+      { name: "PostgreSQL", icon: SiPostgresql, level: "Advanced" },
+      { name: "MongoDB", icon: SiMongodb, level: "Expert" },
+      { name: "Supabase", icon: SiSupabase, level: "Advanced" },
       { name: "Firebase", icon: SiFirebase, level: "Advanced" },
-      { name: "Docker", icon: SiDocker, level: "Intermediate" },
-      { name: "Figma", icon: SiFigma, level: "Advanced" },
     ],
   },
   {
@@ -150,10 +148,20 @@ export const skillsData: SkillCategory[] = [
     skills: [
       { name: "Python", icon: SiPython, level: "Advanced" },
       { name: "OpenAI SDK", icon: SiOpenai, level: "Advanced" },
-      { name: "AI", icon: SiPython, level: "Advanced" },
-      { name: "ML", icon: SiPython, level: "Advanced" },
-      { name: "Agentic AI", icon: SiOpenai, level: "Advanced" },
-      { name: "Gen AI", icon: SiOpenai, level: "Advanced" },
+      { name: "LangChain", icon: SiPython, level: "Advanced" },
+      { name: "LangGraph", icon: SiPython, level: "Advanced" },
+      { name: "RAG Chatbots", icon: SiOpenai, level: "Advanced" },
+      { name: "AI Agents", icon: SiOpenai, level: "Advanced" },
+    ],
+  },
+  {
+    title: "DevOps & Tools",
+    skills: [
+      { name: "Git", icon: SiGit, level: "Expert" },
+      { name: "GitHub", icon: SiGithub, level: "Expert" },
+      { name: "Docker", icon: SiDocker, level: "Intermediate" },
+      { name: "Vercel", icon: SiVercel, level: "Expert" },
+      { name: "Figma", icon: SiFigma, level: "Advanced" },
     ],
   },
 ];
@@ -180,69 +188,42 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    title: "Kids Code & Stories",
+    title: "Admin Management System (Mary Pee Official)",
     description:
-      "Production-grade EdTech platform making programming accessible to children. Features real-time progress tracking, gamified learning, and parent oversight. 125% performance improvement through optimization.",
+      "Production-grade admin dashboard with role-based access control, real-time analytics, and dynamic content management capabilities.",
     features: [
-      "Multi-role authentication (parent, child, admin)",
-      "Interactive coding lessons with instant feedback",
-      "Gamified rewards system with achievement badges",
-      "Real-time parent dashboard & progress analytics",
-      "Dynamic content management with CMS integration",
+      "Role-based access control (RBAC)",
+      "Real-time analytics dashboard",
+      "Dynamic content management",
+      "Secure authentication & session handling",
+      "Responsive admin interface",
     ],
     techStack: [
+      { name: "TypeScript", icon: SiTypescript },
       { name: "Next.js", icon: SiNextdotjs },
       { name: "React", icon: SiReact },
-      { name: "Firebase", icon: SiFirebase },
       { name: "Tailwind CSS", icon: SiTailwindcss },
     ],
-    github: "https://github.com/mhaawais/childrens-website",
-    liveDemo: "https://www.kindercode.io/#/",
-    image: "/images/project-kids-code.png",
-  },
-
-  {
-    title: "Smart Content Management System",
-    description:
-      "Enterprise-grade CMS for managing digital content at scale. Built with role-based access, secure authentication, and optimized for high-volume content delivery. Supports books, media assets, and dynamic blogs.",
-    features: [
-      "Granular role-based access control (RBAC)",
-      "Secure JWT authentication & session management",
-      "Intuitive admin dashboard with analytics",
-      "Database migrations & automated seeding",
-      "SEO-optimized content structure & metadata",
-      "Real-time content publishing workflow",
-    ],
-    techStack: [
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "Prisma", icon: SiPrisma },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-    ],
-    github: "https://github.com/mhaawais/database",
-    liveDemo: "https://admin-marypeeofficial.vercel.app/#/",
+    github: "https://github.com/mhaawais/admin.marypeeofficial",
     image: "/images/project-cms.png",
   },
 
   {
-    title: "E-Commerce Furniture Marketplace",
+    title: "Ecommerce Hackathon Platform",
     description:
-      "Multi-vendor e-commerce platform connecting furniture retailers with customers. Features Stripe Connect payments, vendor analytics, and CMS-powered product catalog. Built for scalability and transaction security.",
+      "Full-featured eCommerce store with product catalog, cart management, checkout flow, payment integration, and headless CMS for dynamic product updates.",
     features: [
-      "Dynamic product catalog with advanced filtering & search",
-      "Secure multi-vendor checkout with Stripe Connect",
-      "Vendor analytics & sales dashboard",
-      "Real-time inventory management",
-      "Headless CMS integration for content management",
-      "Order tracking & customer notifications",
+      "Dynamic product catalog with advanced filtering",
+      "Secure checkout flow with Stripe payment integration",
+      "Headless CMS with Sanity for product management",
+      "Cart management & order tracking",
+      "Responsive mobile-first design",
     ],
     techStack: [
-      { name: "Next.js", icon: SiNextdotjs },
       { name: "TypeScript", icon: SiTypescript },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "Sanity CMS", icon: SiSanity },
       { name: "Stripe", icon: SiStripe },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "Sanity", icon: SiSanity },
     ],
     github: "https://github.com/mhaawais/Ecommerce-Hackathon",
     liveDemo: "https://final-hackathon-two.vercel.app/",
@@ -250,45 +231,83 @@ export const projectsData: Project[] = [
   },
 
   {
-    title: "AI-Powered Data Sweeper",
+    title: "AI Agents & Automation Suite",
     description:
-      "Data transformation tool for business intelligence. Processes CSV and Excel files with automated cleaning, statistical analysis, and interactive visualizations for data-driven decision making.",
+      "Collection of intelligent AI agents for workflow automation, data pipeline processing, and conversational AI assistants deployed in production environments.",
     features: [
-      "Automated CSV & Excel file transformation",
-      "Intelligent data cleaning & normalization",
-      "Statistical analysis & correlation detection",
-      "Interactive dashboards & visualizations",
-      "Batch processing for large datasets",
+      "Intelligent workflow automation agents",
+      "Data pipeline processing with AI",
+      "Conversational AI assistants",
+      "LangGraph state-machine orchestration",
+      "Production-ready deployment",
     ],
     techStack: [
       { name: "Python", icon: SiPython },
-      { name: "Streamlit", icon: SiStreamlit },
-      { name: "Pandas", icon: SiPandas },
-      { name: "Plotly", icon: SiPlotly },
+      { name: "OpenAI SDK", icon: SiOpenai },
+      { name: "LangGraph", icon: SiPython },
+      { name: "LangChain", icon: SiPython },
     ],
-    github: "https://github.com/mhaawais/Datasweeper-python",
+    github: "https://github.com/mhaawais/ai_agents",
     image: "/images/project-datasweeper.png",
   },
 
   {
-    title: "Business & Agency Websites",
+    title: "RAG Chatbot for Web Applications",
     description:
-      "Custom-built websites for businesses across diverse industries. Combines stunning design with technical SEO, fast performance, and conversion optimization. Average Lighthouse score: 95+.",
+      "Retrieval-Augmented Generation chatbot integrated into web apps, enabling context-aware conversations with domain-specific knowledge bases for enhanced user support.",
     features: [
-      "Mobile-first responsive design",
-      "Industry-specific customizations",
-      "Technical SEO optimization",
-      "Performance optimization (Core Web Vitals)",
-      "CMS integration for easy content updates",
-      "Analytics integration & conversion tracking",
+      "Context-aware RAG pipeline",
+      "Domain-specific knowledge base integration",
+      "Vector database for semantic search",
+      "OpenAI-powered response generation",
+      "Web app integration ready",
+    ],
+    techStack: [
+      { name: "Python", icon: SiPython },
+      { name: "LangChain", icon: SiPython },
+      { name: "OpenAI", icon: SiOpenai },
+    ],
+    github: "https://github.com/mhaawais",
+    image: "/images/project-agency.png",
+  },
+
+  {
+    title: "Kids Code & Stories Platform",
+    description:
+      "Interactive children's educational web app with gamified coding lessons, story-based learning modules, and a responsive, accessible UI designed for young learners.",
+    features: [
+      "Gamified coding lessons for children",
+      "Story-based learning modules",
+      "Multi-role authentication (parent, child)",
+      "Real-time progress tracking",
+      "Accessible, responsive UI",
     ],
     techStack: [
       { name: "Next.js", icon: SiNextdotjs },
       { name: "React", icon: SiReact },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "Supabase", icon: SiSupabase },
     ],
-    github: "https://github.com/mhaawais",
-    image: "/images/project-agency.png",
+    github: "https://github.com/mhaawais/childrens-website",
+    liveDemo: "https://www.kindercode.io/#/",
+    image: "/images/project-kids-code.png",
+  },
+
+  {
+    title: "Library Manager CLI",
+    description:
+      "Command-line library management system with clean architecture, CRUD operations, search functionality, and structured data persistence.",
+    features: [
+      "Full CRUD operations for books & records",
+      "Search functionality by title, author, genre",
+      "Structured data persistence",
+      "Clean CLI interface with navigation",
+      "Modular, extensible architecture",
+    ],
+    techStack: [
+      { name: "Python", icon: SiPython },
+    ],
+    github: "https://github.com/mhaawais/library-manager-python",
+    image: "/images/project-datasweeper.png",
   },
 ];
 
@@ -306,17 +325,16 @@ export interface Experience {
 export const experienceData: Experience[] = [
   {
     company: "S-Tech Innovative",
-    role: "Full Stack Developer",
+    role: "Full Stack Developer & AI Solutions Engineer",
     duration: "April 2025 – Present",
-    location: "On-site",
+    location: "Karachi, Pakistan",
     current: true,
     responsibilities: [
-      "Lead full-stack development projects using Next.js and Node.js with TypeScript",
-      "Develop and maintain enterprise CMS platform serving 10+ clients",
-      "Design and optimize custom databases for production applications",
-      "Implement API integrations improving data retrieval efficiency by 30%",
-      "Collaborate with design team to create responsive, accessible user interfaces",
-      "Conduct code reviews and mentor junior developers on best practices",
+      "Lead full-stack development of production web applications, managing end-to-end delivery from architecture design through live deployment on Vercel and cloud platforms.",
+      "Architect and maintain functional databases powering 5+ web applications, with integrated payment gateways and robust backend servers ensuring 99.9% uptime.",
+      "Develop and deploy AI-powered features including RAG chatbots and intelligent automation agents, enhancing user engagement and reducing manual workflows by 40%.",
+      "Conduct rigorous code reviews, resolve complex bugs, and integrate third-party APIs, achieving a 30% improvement in data retrieval speed and overall UX performance.",
+      "Implement CMS platforms with modern content workflows, enabling non-technical teams to manage dynamic web content independently.",
     ],
   },
   {
@@ -325,11 +343,20 @@ export const experienceData: Experience[] = [
     duration: "January 2025 – March 2025",
     location: "Europe (Remote)",
     responsibilities: [
-      "Architected and developed 'Kids Code & Stories' educational platform",
-      "Optimized application performance achieving 125% improvement in load times",
-      "Implemented real-time features and database synchronization using Supabase",
-      "Collaborated with international team across multiple time zones",
-      "Deployed to production and managed ongoing maintenance and updates",
+      "Built a full-stack interactive web application ('Code & Stories') for children using Next.js, React, and Supabase, collaborating with cross-functional international teams.",
+      "Boosted overall website performance by 25% through front-end and back-end optimizations, lazy loading, and CMS integration for seamless content updates.",
+      "Designed and implemented secure, well-documented RESTful APIs for third-party integrations without compromising application performance or security.",
+    ],
+  },
+  {
+    company: "Self-Employed",
+    role: "Freelance Full Stack Developer",
+    duration: "October 2023 – December 2024",
+    location: "Remote",
+    responsibilities: [
+      "Delivered 10+ client projects including eCommerce stores, landing pages, and admin dashboards using Next.js, React, Tailwind CSS, and Node.js.",
+      "Built and deployed AI-powered products integrating OpenAI APIs, LangChain, and RAG pipelines for intelligent search and automated customer support.",
+      "Developed responsive, mobile-first web interfaces with a focus on accessibility, SEO best practices, and cross-browser compatibility.",
     ],
   },
 ];
@@ -348,14 +375,14 @@ export const educationData: Education[] = [
     degree: "BS Computer Science",
     institution: "KFUEIT",
     location: "Rahim Yar Khan, Pakistan",
-    year: "2025",
+    year: "April 2025",
     description: "Focused on software engineering, algorithms, and web technologies.",
   },
   {
-    degree: "Intermediate / High School",
+    degree: "Higher Secondary School Certificate",
     institution: "APSACS",
     location: "Rahim Yar Khan, Pakistan",
-    year: "2021",
+    year: "April 2021",
     description: "Completed with focus on science and mathematics.",
   },
 ];
@@ -378,7 +405,7 @@ export const contactData = {
     },
     {
       name: "Portfolio",
-      url: "https://muhammad-awais-portfolio.vercel.app/#/",
+      url: "https://muhammad-awais-portfolio.vercel.app/",
       icon: FaGlobe,
     },
   ],

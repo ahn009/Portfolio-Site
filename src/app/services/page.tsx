@@ -35,28 +35,46 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    title: 'Next.js Development',
+    title: 'Full Stack Web Development',
     slug: 'nextjs-development',
-    description: 'Build fast, scalable, and SEO-friendly applications with Next.js',
+    description: 'Build fast, scalable, and SEO-friendly applications with Next.js and MERN Stack',
     icon: '⚡',
+  },
+  {
+    title: 'AI Product Development',
+    slug: 'ai-integration-development',
+    description: 'RAG chatbots, intelligent AI agents, and automation workflows for modern businesses',
+    icon: '🧠',
+  },
+  {
+    title: 'eCommerce Solutions',
+    slug: 'mern-stack-development',
+    description: 'Full-featured eCommerce stores with payment integration, CMS, and inventory management',
+    icon: '🛒',
   },
   {
     title: 'React Development',
     slug: 'react-development',
-    description: 'Create dynamic and interactive user interfaces with React',
+    description: 'Create dynamic and interactive user interfaces with React and TypeScript',
     icon: '⚛️',
   },
   {
-    title: 'MERN Stack Development',
+    title: 'CMS Integration',
+    slug: 'ai-integration-development',
+    description: 'Headless CMS solutions enabling non-technical teams to manage content independently',
+    icon: '📝',
+  },
+  {
+    title: 'API Development',
     slug: 'mern-stack-development',
-    description: 'Full-stack development using MongoDB, Express, React, and Node.js',
+    description: 'Secure, well-documented RESTful and GraphQL APIs for seamless third-party integrations',
     icon: '🔗',
   },
   {
-    title: 'AI Integration',
-    slug: 'ai-integration-development',
-    description: 'Integrate AI and machine learning into your web applications',
-    icon: '🤖',
+    title: 'Performance Optimization',
+    slug: 'nextjs-development',
+    description: 'Core Web Vitals improvements, load time reduction, and scalability enhancements',
+    icon: '🚀',
   },
 ];
 

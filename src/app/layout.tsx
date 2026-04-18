@@ -22,9 +22,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://muhammad-awais-portfolio.vercel.app"),
-  title: "Muhammad Awais - Full Stack Developer & Next.js Expert | MERN Stack & AI",
+  title: "Muhammad Awais - Full Stack Developer | AI Solutions Engineer | MERN & Next.js Specialist",
   description:
-    "Professional portfolio of Muhammad Awais, Full Stack Developer specializing in Next.js, React, MERN Stack, and AI integration. Hire for web development projects. 3+ years of production experience.",
+    "Professional portfolio of Muhammad Awais, Full Stack Developer & AI Solutions Engineer specializing in Next.js, MERN Stack, RAG chatbots, and AI agents. 2.5+ years of production experience.",
   verification: {
     google: "qaffrCRgQTIweoljI3L7It6hQEI7tjESpBOZ71gx2hQ",
   },
@@ -49,16 +49,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://muhammad-awais-portfolio.vercel.app",
-    siteName: "Muhammad Awais - Full Stack Developer",
-    title: "Muhammad Awais - Full Stack Developer & Next.js Expert | MERN Stack & AI",
+    siteName: "Muhammad Awais - Full Stack Developer & AI Solutions Engineer",
+    title: "Muhammad Awais - Full Stack Developer | AI Solutions Engineer | MERN & Next.js Specialist",
     description:
-      "Professional portfolio showcasing expertise in Next.js, React, MERN Stack, and AI integration. Available for freelance and full-time opportunities.",
+      "Professional portfolio showcasing expertise in Next.js, MERN Stack, RAG chatbots, and AI agents. 2.5+ years of production experience. Available for freelance and full-time opportunities.",
     images: [
       {
         url: "https://muhammad-awais-portfolio.vercel.app/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Muhammad Awais - Full Stack Developer | MERN Stack & Ai Developer",
+        alt: "Muhammad Awais - Full Stack Developer | AI Solutions Engineer | MERN & Next.js Specialist",
         type: "image/png",
       },
     ],
@@ -67,9 +67,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@awais8640107",
     creator: "@awais8640107",
-    title: "Muhammad Awais - Full Stack Developer",
+    title: "Muhammad Awais - Full Stack Developer | AI Solutions Engineer",
     description:
-      "Full Stack Developer specializing in Next.js, React, Node.js, and AI solutions. 3+ years of production experience. Available for projects.",
+      "Full Stack Developer & AI Solutions Engineer specializing in Next.js, MERN Stack, RAG chatbots, and AI agents. 2.5+ years of production experience. Available for projects.",
     images: ["https://muhammad-awais-portfolio.vercel.app/og-image.png"],
   },
   robots: {
