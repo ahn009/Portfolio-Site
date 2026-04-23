@@ -39,9 +39,9 @@ export const navLinks = [
 // Hero Section Data
 export const heroData = {
   name: "Muhammad Awais",
-  headline: "Full Stack Developer | AI Solutions Engineer | MERN & Next.js Specialist",
+  headline: "AI Solutions Engineer & Full Stack Developer",
   subheadline:
-    "Results-driven Full Stack Developer with 2.5+ years of experience building high-performance web applications and AI-powered products. Expert in MERN Stack, Next.js, RAG chatbots, and AI agents.",
+    "Websites & AI for Authors, Publishers & Businesses. 2.5+ years building production apps — RAG chatbots, AI agents, Next.js platforms, and LLM automation workflows. 15+ client projects shipped.",
   profileImage: "/images/profile.jpg",
   ctas: {
     primary: { text: "View My Work", href: "/projects" },
@@ -54,15 +54,15 @@ export const heroData = {
 export const aboutData = {
   title: "About Me",
   paragraphs: [
-    "Results-driven Full Stack Developer with 2.5+ years of hands-on experience building high-performance, scalable web applications and AI-powered products. Deep expertise in the MERN stack, Next.js, and modern frontend frameworks including Vite and PHP-based backends.",
-    "Proven track record of delivering production-ready eCommerce platforms, CMS solutions, admin dashboards, and live AI products including RAG chatbots, intelligent agents, and automation workflows. Passionate about synchronizing AI capabilities with web development to create next-generation digital experiences.",
-    "Adept at leading cross-functional teams, optimizing application performance, and driving end-to-end product delivery from architecture to deployment. Committed to shipping quality code that makes a measurable business impact.",
+    "AI Solutions Engineer & Full Stack Developer with 2.5+ years delivering production web applications and intelligent systems. Specialized in Next.js, MERN stack, and LLM-powered automation — RAG chatbots, AI agents, and LangChain/LangGraph pipelines.",
+    "Niche focus: building digital platforms for authors, publishers, and content creators. 9+ author book websites, 4 publishing agency platforms, and AI-powered tools that replace manual workflows. Clients get fast sites, real analytics, and 24/7 AI assistants — not just pretty pages.",
+    "Currently at S-Tech Innovative leading AI feature delivery. Previously built KinderCode (EdTech) for a European client at Byte-Forge Solutions. Graduated BS Computer Science, KFUEIT, April 2025.",
   ],
   highlights: [
-    "2.5+ years building production applications",
-    "Full Stack: Next.js, MERN, AI Solutions",
-    "RAG Chatbots, AI Agents & Automation",
-    "Performance optimization & scalable deployments",
+    "15+ production projects shipped",
+    "RAG Chatbots, AI Agents & LLM Pipelines",
+    "9+ Author & Publishing Platforms",
+    "Next.js, MERN, FastAPI, Vector DBs",
   ],
 };
 
@@ -118,10 +118,10 @@ export const skillsData: SkillCategory[] = [
     skills: [
       { name: "Next.js", icon: SiNextdotjs, level: "Expert" },
       { name: "React", icon: SiReact, level: "Expert" },
-      { name: "Vite", icon: SiVite, level: "Advanced" },
       { name: "TypeScript", icon: SiTypescript, level: "Advanced" },
       { name: "JavaScript", icon: SiJavascript, level: "Expert" },
       { name: "Tailwind CSS", icon: SiTailwindcss, level: "Expert" },
+      { name: "Vite", icon: SiVite, level: "Advanced" },
       { name: "Bootstrap", icon: SiBootstrap, level: "Advanced" },
     ],
   },
@@ -130,8 +130,10 @@ export const skillsData: SkillCategory[] = [
     skills: [
       { name: "Node.js", icon: SiNodedotjs, level: "Expert" },
       { name: "Express.js", icon: SiExpress, level: "Advanced" },
-      { name: "PHP", icon: SiPhp, level: "Intermediate" },
+      { name: "FastAPI", icon: SiPython, level: "Advanced" },
       { name: "GraphQL", icon: SiGraphql, level: "Intermediate" },
+      { name: "REST APIs", icon: SiNodedotjs, level: "Expert" },
+      { name: "PHP", icon: SiPhp, level: "Intermediate" },
     ],
   },
   {
@@ -144,24 +146,28 @@ export const skillsData: SkillCategory[] = [
     ],
   },
   {
-    title: "AI & ML",
+    title: "AI & LLM",
     skills: [
       { name: "Python", icon: SiPython, level: "Advanced" },
       { name: "OpenAI SDK", icon: SiOpenai, level: "Advanced" },
       { name: "LangChain", icon: SiPython, level: "Advanced" },
       { name: "LangGraph", icon: SiPython, level: "Advanced" },
-      { name: "RAG Chatbots", icon: SiOpenai, level: "Advanced" },
+      { name: "RAG Pipelines", icon: SiOpenai, level: "Advanced" },
+      { name: "Prompt Engineering", icon: SiOpenai, level: "Advanced" },
+      { name: "Vector DBs", icon: SiPython, level: "Advanced" },
       { name: "AI Agents", icon: SiOpenai, level: "Advanced" },
     ],
   },
   {
-    title: "DevOps & Tools",
+    title: "Cloud & DevOps",
     skills: [
-      { name: "Git", icon: SiGit, level: "Expert" },
-      { name: "GitHub", icon: SiGithub, level: "Expert" },
-      { name: "Docker", icon: SiDocker, level: "Intermediate" },
       { name: "Vercel", icon: SiVercel, level: "Expert" },
+      { name: "Git", icon: SiGit, level: "Expert" },
+      { name: "GitHub Actions", icon: SiGithub, level: "Advanced" },
+      { name: "Docker", icon: SiDocker, level: "Intermediate" },
       { name: "Figma", icon: SiFigma, level: "Advanced" },
+      { name: "Sanity CMS", icon: SiSanity, level: "Advanced" },
+      { name: "Stripe API", icon: SiStripe, level: "Advanced" },
     ],
   },
 ];
@@ -188,126 +194,133 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    title: "Admin Management System (Mary Pee Official)",
+    title: "Mary Pee Official — Admin Dashboard",
     description:
-      "Production-grade admin dashboard with role-based access control, real-time analytics, and dynamic content management capabilities.",
+      "Production-grade RBAC admin panel for a publishing brand. Real-time analytics, dynamic CMS, and secure multi-role auth — end-to-end full-stack mastery with Prisma + Next.js.",
     features: [
-      "Role-based access control (RBAC)",
-      "Real-time analytics dashboard",
-      "Dynamic content management",
-      "Secure authentication & session handling",
-      "Responsive admin interface",
+      "Role-based access control (RBAC) with session management",
+      "Real-time analytics dashboard with data visualization",
+      "Dynamic content management via Prisma ORM",
+      "Secure authentication with protected route middleware",
+      "55+ commits — production deployed, actively maintained",
     ],
     techStack: [
-      { name: "TypeScript", icon: SiTypescript },
       { name: "Next.js", icon: SiNextdotjs },
-      { name: "React", icon: SiReact },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "PostgreSQL", icon: SiPostgresql },
       { name: "Tailwind CSS", icon: SiTailwindcss },
     ],
     github: "https://github.com/mhaawais/admin.marypeeofficial",
+    liveDemo: "https://admin-marypeeofficial.vercel.app",
     image: "/images/project-cms.png",
   },
 
   {
-    title: "Ecommerce Hackathon Platform",
+    title: "AI Book Website + RAG Chatbot",
     description:
-      "Full-featured eCommerce store with product catalog, cart management, checkout flow, payment integration, and headless CMS for dynamic product updates.",
+      "Author marketing site with an embedded RAG chatbot trained on book content — enabling 24/7 domain-specific Q&A for readers. Built for the author niche: Next.js frontend + LangChain backend + vector DB.",
     features: [
-      "Dynamic product catalog with advanced filtering",
-      "Secure checkout flow with Stripe payment integration",
-      "Headless CMS with Sanity for product management",
-      "Cart management & order tracking",
-      "Responsive mobile-first design",
+      "RAG pipeline: OpenAI + vector embeddings for book-specific Q&A",
+      "Semantic search with <800ms query response latency",
+      "Next.js author marketing site with MDX content",
+      "Chatbot answers domain-specific reader questions autonomously",
+      "Hackathon project — shipped end-to-end in 24 hours",
     ],
     techStack: [
-      { name: "TypeScript", icon: SiTypescript },
       { name: "Next.js", icon: SiNextdotjs },
-      { name: "Sanity CMS", icon: SiSanity },
-      { name: "Stripe", icon: SiStripe },
+      { name: "Python", icon: SiPython },
+      { name: "LangChain", icon: SiPython },
+      { name: "OpenAI", icon: SiOpenai },
     ],
-    github: "https://github.com/mhaawais/Ecommerce-Hackathon",
-    liveDemo: "https://final-hackathon-two.vercel.app/",
-    image: "/images/project-ecommerce.png",
+    github: "https://github.com/mhaawais/hackathon_book",
+    liveDemo: "https://hackathon-book-ashy.vercel.app",
+    image: "/images/project-agency.png",
   },
 
   {
-    title: "AI Agents & Automation Suite",
+    title: "AI Todo Manager + Chatbot",
     description:
-      "Collection of intelligent AI agents for workflow automation, data pipeline processing, and conversational AI assistants deployed in production environments.",
+      "AI-powered productivity app with an integrated chatbot for natural-language task management. Multi-phase architecture with GitHub Actions CI/CD — shows AI integration into real-world workflows.",
     features: [
-      "Intelligent workflow automation agents",
-      "Data pipeline processing with AI",
-      "Conversational AI assistants",
-      "LangGraph state-machine orchestration",
-      "Production-ready deployment",
+      "Natural language task creation via AI chatbot",
+      "Multi-phase full-stack architecture (TypeScript + Python)",
+      "GitHub Actions CI/CD pipeline with Docker",
+      "Conversational UI for task categorization and tracking",
+      "Vercel deployment with automated workflow",
     ],
     techStack: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "TypeScript", icon: SiTypescript },
       { name: "Python", icon: SiPython },
-      { name: "OpenAI SDK", icon: SiOpenai },
-      { name: "LangGraph", icon: SiPython },
-      { name: "LangChain", icon: SiPython },
+      { name: "OpenAI", icon: SiOpenai },
     ],
-    github: "https://github.com/mhaawais/ai_agents",
+    github: "https://github.com/mhaawais/hackathon-2",
+    liveDemo: "https://hackathon-2-khaki-psi.vercel.app",
     image: "/images/project-datasweeper.png",
   },
 
   {
-    title: "RAG Chatbot for Web Applications",
+    title: "ScriptForge — AI Video Script Generator",
     description:
-      "Retrieval-Augmented Generation chatbot integrated into web apps, enabling context-aware conversations with domain-specific knowledge bases for enhanced user support.",
+      "LLM-powered tool for content creators — generates structured video scripts from prompts using LangChain pipelines. Targets the content creator economy with a clean, fast UI.",
     features: [
-      "Context-aware RAG pipeline",
-      "Domain-specific knowledge base integration",
-      "Vector database for semantic search",
-      "OpenAI-powered response generation",
-      "Web app integration ready",
+      "LangChain/LangGraph orchestration for multi-step script generation",
+      "Prompt engineering for tone, style, and structure control",
+      "Content creator-focused UX with instant output",
+      "Supports YouTube, short-form, and long-form script formats",
+      "FastAPI backend with Next.js frontend",
     ],
     techStack: [
+      { name: "Next.js", icon: SiNextdotjs },
       { name: "Python", icon: SiPython },
       { name: "LangChain", icon: SiPython },
       { name: "OpenAI", icon: SiOpenai },
     ],
     github: "https://github.com/mhaawais",
-    image: "/images/project-agency.png",
+    liveDemo: "https://scriptforge-dun.vercel.app",
+    image: "/images/project-cms.png",
   },
 
   {
-    title: "Kids Code & Stories Platform",
+    title: "KinderCode — Kids Coding & EdTech Platform",
     description:
-      "Interactive children's educational web app with gamified coding lessons, story-based learning modules, and a responsive, accessible UI designed for young learners.",
+      "Interactive EdTech platform for children with gamified coding lessons, story-based learning, and real-time progress tracking. Built with Next.js + Supabase for Byte-Forge Solutions (European client).",
     features: [
-      "Gamified coding lessons for children",
-      "Story-based learning modules",
-      "Multi-role authentication (parent, child)",
-      "Real-time progress tracking",
-      "Accessible, responsive UI",
+      "Gamified coding lessons with child-friendly UX",
+      "Multi-role auth: parent dashboard + child learning view",
+      "Real-time progress tracking via Supabase",
+      "Story-based interactive modules for engagement",
+      "25% performance improvement through optimization",
     ],
     techStack: [
       { name: "Next.js", icon: SiNextdotjs },
       { name: "React", icon: SiReact },
       { name: "Supabase", icon: SiSupabase },
+      { name: "TypeScript", icon: SiTypescript },
     ],
     github: "https://github.com/mhaawais/childrens-website",
-    liveDemo: "https://www.kindercode.io/#/",
+    liveDemo: "https://www.kindercode.io/",
     image: "/images/project-kids-code.png",
   },
 
   {
-    title: "Library Manager CLI",
+    title: "DataSweeper — AI Data Processing Tool",
     description:
-      "Command-line library management system with clean architecture, CRUD operations, search functionality, and structured data persistence.",
+      "Python + Streamlit app for automated data cleaning and processing powered by AI. Demonstrates MLOps awareness and Python data engineering skills with Pandas/NumPy pipelines.",
     features: [
-      "Full CRUD operations for books & records",
-      "Search functionality by title, author, genre",
-      "Structured data persistence",
-      "Clean CLI interface with navigation",
-      "Modular, extensible architecture",
+      "Automated data cleaning with AI-assisted detection",
+      "Pandas/NumPy processing pipelines",
+      "Streamlit deployment — MLOps-ready",
+      "Upload CSV/Excel, get clean output instantly",
+      "Data flow visualization and transformation logs",
     ],
     techStack: [
       { name: "Python", icon: SiPython },
+      { name: "OpenAI", icon: SiOpenai },
     ],
-    github: "https://github.com/mhaawais/library-manager-python",
-    image: "/images/project-datasweeper.png",
+    github: "https://github.com/mhaawais",
+    liveDemo: "https://datasweeper-python-growthmindset.streamlit.app",
+    image: "/images/project-ecommerce.png",
   },
 ];
 
@@ -389,7 +402,7 @@ export const educationData: Education[] = [
 
 // Contact Data
 export const contactData = {
-  email: "awais8640107@gmail.com",
+  email: "mawaisfreelance2@gmail.com",
   phone: "+92 317 5597654",
   location: "Karachi, Pakistan",
   social: [

@@ -1,0 +1,107 @@
+# Muhammad Awais — AI Solutions Engineer & Full Stack Developer
+
+> Websites & AI for Authors, Publishers & Businesses. 2.5+ years building production apps — RAG chatbots, AI agents, Next.js platforms, and LLM automation workflows. 15+ client projects shipped.
+
+## Identity
+
+- **Name:** Muhammad Awais
+- **Role:** AI Solutions Engineer & Full Stack Developer
+- **Location:** Karachi, Pakistan
+- **Email:** mawaisfreelance2@gmail.com
+- **Portfolio:** https://muhammad-awais-portfolio.vercel.app
+- **GitHub:** https://github.com/mhaawais
+- **LinkedIn:** https://linkedin.com/in/muhammad-awais-5b37742ba
+
+## Niche Specialization
+
+Primary focus: building digital platforms for **authors, publishers, and content creators** — from custom book websites and publishing agency platforms to AI-powered reader chatbots trained on book content.
+
+- 9+ author book websites delivered (bishopo.com, sameer-hirsi.vercel.app, authorsidibe.com, munshya-alice-tembo.vercel.app, hopepromise.com, authordeepi.com, jamesholmesjr.com, jacobkenrobinson.com, dwightvincentgreen.com)
+- 4 publishing agency platforms (publishdigitally.com, elitebookwriters.com, americanbookfounders.com, bookspirepublishing.com)
+
+## Skills & Technologies
+
+| Category       | Technologies                                                                              |
+| -------------- | ----------------------------------------------------------------------------------------- |
+| Languages      | TypeScript, JavaScript (ES6+), Python, PHP, SQL                                           |
+| Frontend       | Next.js 14+, React, Vite, Tailwind CSS, HTML5/CSS3                                        |
+| Backend        | Node.js, Express.js, FastAPI, REST APIs, GraphQL                                          |
+| AI / LLM       | OpenAI SDK, LangChain, LangGraph, RAG Pipelines, Prompt Engineering, Vector DBs (Pinecone/Chroma) |
+| Databases      | PostgreSQL, MongoDB, Supabase, Firebase                                                   |
+| Cloud / DevOps | Vercel, Docker, GitHub Actions, CI/CD                                                     |
+| Tools          | Figma, Sanity CMS, Stripe API, VS Code                                                    |
+
+## Hero Projects
+
+### Mary Pee Official — Admin Dashboard
+Production-grade RBAC admin panel with real-time analytics, dynamic CMS, and Prisma ORM. 55+ commits, actively maintained.
+- Live: https://admin-marypeeofficial.vercel.app
+- GitHub: https://github.com/mhaawais/admin.marypeeofficial
+- Stack: Next.js, TypeScript, PostgreSQL, Tailwind CSS
+
+### AI Book Website + RAG Chatbot
+Author marketing site with embedded RAG chatbot trained on book content — 24/7 domain-specific Q&A for readers. Semantic search with <800ms query latency.
+- Live: https://hackathon-book-ashy.vercel.app
+- GitHub: https://github.com/mhaawais/hackathon_book
+- Stack: Next.js, Python, LangChain, OpenAI
+
+### AI Todo Manager + Chatbot
+Natural language task management via AI chatbot. Multi-phase TypeScript + Python architecture with GitHub Actions CI/CD.
+- Live: https://hackathon-2-khaki-psi.vercel.app
+- GitHub: https://github.com/mhaawais/hackathon-2
+- Stack: Next.js, TypeScript, Python, OpenAI
+
+### ScriptForge — AI Video Script Generator
+LangChain/LangGraph-powered tool for content creators. Generates structured video scripts from prompts with tone and style control.
+- Live: https://scriptforge-dun.vercel.app
+- Stack: Next.js, Python, LangChain, OpenAI
+
+### KinderCode — Kids Coding & EdTech Platform
+Gamified coding platform for children. Multi-role auth, real-time progress tracking, story-based modules. Built for Byte-Forge Solutions (European client).
+- Live: https://www.kindercode.io/
+- GitHub: https://github.com/mhaawais/childrens-website
+- Stack: Next.js, React, Supabase, TypeScript
+
+### DataSweeper — AI Data Processing Tool
+Python + Streamlit app for automated data cleaning with AI-assisted detection and Pandas/NumPy pipelines.
+- Live: https://datasweeper-python-growthmindset.streamlit.app
+- Stack: Python, OpenAI, Streamlit
+
+## Work Experience
+
+### Full Stack Developer & AI Solutions Engineer — S-Tech Innovative
+April 2025 – Present | Karachi, Pakistan
+- Leads full-stack development and AI-powered feature delivery for production applications
+- Deploys RAG chatbots and automation agents, reducing manual workflows by 40%
+- Maintains 5+ web applications with 99.9% uptime and integrated payment gateways
+- 30% improvement in data retrieval speed through API optimization and third-party integrations
+
+### Web Developer — Byte-Forge Solutions (Remote)
+January 2025 – March 2025 | Europe (Remote)
+- Built KinderCode (childrens coding platform) with Next.js, React, and Supabase for international client
+- 25% performance improvement via frontend/backend optimization and CMS integration
+
+### Freelance Full Stack Developer — Self-Employed
+October 2023 – December 2024 | Remote
+- Delivered 10+ client projects: eCommerce stores, admin dashboards, AI-powered products
+- Built and deployed RAG pipelines with OpenAI APIs and LangChain for automated customer support
+
+## Education
+
+**BS Computer Science** — KFUEIT, Rahim Yar Khan, Pakistan | April 2025
+
+## Services Offered
+
+- Author websites & publishing platforms
+- RAG chatbots trained on custom content
+- AI agents & automation workflows (LangChain, LangGraph)
+- Full stack web applications (Next.js, MERN)
+- eCommerce solutions with Stripe & Sanity CMS
+- Performance optimization & CI/CD pipelines
+
+## Contact
+
+For project inquiries, collaboration, or hiring:
+- Email: mawaisfreelance2@gmail.com
+- Portfolio: https://muhammad-awais-portfolio.vercel.app/contact
+- LinkedIn: https://linkedin.com/in/muhammad-awais-5b37742ba
